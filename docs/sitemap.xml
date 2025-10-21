@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.openstatprog.com/module-template/tutorials/basic_graph/scatterplots.html</loc>
-    <lastmod>2025-08-09T14:54:39.773Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.129Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/tutorials/basic_graph/index.html</loc>
-    <lastmod>2025-08-09T14:03:24.591Z</lastmod>
+    <lastmod>2025-10-21T10:56:45.892Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/index.html</loc>
-    <lastmod>2025-08-09T16:51:02.962Z</lastmod>
+    <lastmod>2025-10-21T10:47:17.611Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/in_progress.html</loc>
@@ -18,19 +18,19 @@
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/quizzes/basic_graph/questions/default_arguments2.html</loc>
-    <lastmod>2025-08-09T09:58:38.938Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.119Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/quizzes/basic_graph/questions/arithmetic2.html</loc>
-    <lastmod>2025-08-09T09:58:38.938Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.118Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/quizzes/basic_graph/questions/logical.html</loc>
-    <lastmod>2025-08-09T09:58:38.938Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.120Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/quizzes/basic_graph/index.html</loc>
-    <lastmod>2025-08-09T16:49:42.408Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.115Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/conclusion.html</loc>
@@ -38,14 +38,66 @@
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/tutorials/basic_graph/density.html</loc>
-    <lastmod>2025-08-09T16:25:55.878Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.126Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/tutorials/basic_graph/hist.html</loc>
-    <lastmod>2025-08-09T15:20:42.409Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.127Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/module-template/tutorials/basic_graph/boxplots.html</loc>
-    <lastmod>2025-08-11T11:08:47.328Z</lastmod>
+    <lastmod>2025-08-28T16:16:56.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/index.html</loc>
+    <lastmod>2025-10-21T10:47:17.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/basic_graph/index.html</loc>
+    <lastmod>2025-10-21T10:56:45.892Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/basic_graph/scatterplots.html</loc>
+    <lastmod>2025-08-28T16:16:56.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/basic_graph/hist.html</loc>
+    <lastmod>2025-08-28T16:16:56.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/basic_graph/boxplots.html</loc>
+    <lastmod>2025-08-28T16:16:56.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/basic_graph/density.html</loc>
+    <lastmod>2025-08-28T16:16:56.126Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/basic_graph/index.html</loc>
+    <lastmod>2025-08-28T16:16:56.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/conclusion.html</loc>
+    <lastmod>2025-08-28T16:16:55.784Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/scatterplots.html</loc>
+    <lastmod>2025-10-21T13:12:55.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/hist.html</loc>
+    <lastmod>2025-08-28T16:16:56.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/boxplots.html</loc>
+    <lastmod>2025-08-28T16:16:56.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/density.html</loc>
+    <lastmod>2025-08-28T16:16:56.126Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/index.html</loc>
+    <lastmod>2025-10-21T10:56:45.892Z</lastmod>
   </url>
 </urlset>

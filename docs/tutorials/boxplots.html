@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scatterplot – OSP Basic Visualization</title>
+<title>Boxplots – OSP Basic Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,26 +57,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../tutorials/basic_graph/hist.html" rel="next">
-<link href="../../tutorials/basic_graph/index.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tutorials/density.html" rel="next">
+<link href="../tutorials/hist.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"dpi":72,"message":"true","results":"markup","editor-quick-suggestions":"false","comment":"","read-only":"false","fig-width":7,"fig-height":5,"context":"setup","classes":"","output":"true","label":"unnamed-chunk-1","warning":"true","fig-cap":"","autorun":"true","out-width":"700px","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","editor-max-height":""},"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")\nlibrary(magrittr)","id":1},{"options":{"dpi":72,"message":"true","results":"markup","editor-quick-suggestions":"false","comment":"","read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","classes":"","output":"true","label":"unnamed-chunk-2","warning":"true","fig-cap":"","autorun":"false","out-width":"700px","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","editor-max-height":""},"code":"","id":2}];
+globalThis.qwebrCellDetails = [{"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")\nlibrary(magrittr)","options":{"editor-word-wrap":"true","results":"markup","dpi":72,"fig-width":7,"classes":"","read-only":"false","warning":"true","out-height":"","autorun":"true","fig-height":5,"context":"setup","comment":"","label":"unnamed-chunk-1","message":"true","fig-cap":"","out-width":"700px","editor-max-height":"","output":"true","editor-quick-suggestions":"false","editor-font-scale":"1"},"id":1},{"code":"","options":{"editor-word-wrap":"true","results":"markup","dpi":72,"fig-width":7,"classes":"","read-only":"false","warning":"true","out-height":"","autorun":"false","fig-height":5,"context":"interactive","comment":"","label":"unnamed-chunk-2","message":"true","fig-cap":"","out-width":"700px","editor-max-height":"","output":"true","editor-quick-suggestions":"false","editor-font-scale":"1"},"id":2}];
 
 </script>
 <script type="module">
@@ -1658,32 +1658,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-resource.callout {
-  border-left-color: orange;
-}
-div.callout-resource.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0c1' !important;
-  background-image: none;
-}
-div.callout-practice.callout {
-  border-left-color: green;
-}
-div.callout-practice.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f085' !important;
-  background-image: none;
-}
 div.callout-reading.callout {
   border-left-color: purple;
 }
@@ -1695,6 +1669,19 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f518' !important;
+  background-image: none;
+}
+div.callout-resource.callout {
+  border-left-color: orange;
+}
+div.callout-resource.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c1' !important;
   background-image: none;
 }
 div.callout-reading-advanced.callout {
@@ -1710,10 +1697,23 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
   content: '\f518' !important;
   background-image: none;
 }
+div.callout-practice.callout {
+  border-left-color: green;
+}
+div.callout-practice.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f085' !important;
+  background-image: none;
+}
 </style>
 
 
-<link rel="stylesheet" href="../../html/webex.css">
+<link rel="stylesheet" href="../html/webex.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -1733,7 +1733,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
 <span class="menu-text">Open-Stat-Prog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Basic Visualization</span></a>
   </li>  
 </ul>
@@ -1762,7 +1762,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/basic_graph/scatterplots.html">Scatterplot</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/boxplots.html">Boxplots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1776,49 +1776,49 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Base R Graphics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/scatterplots.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tutorials/scatterplots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Scatterplot</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/hist.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/hist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/boxplots.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/boxplots.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Boxplots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/density.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/density.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Density Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../quizzes/basic_graph/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../quizzes/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Knowledge Quiz</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conclusion.html" class="sidebar-item-text sidebar-link">
+  <a href="../conclusion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conclusion</span></a>
   </div>
 </li>
@@ -2119,7 +2119,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scatterplot</h1>
+<h1 class="title">Boxplots</h1>
 </div>
 
 
@@ -2136,49 +2136,45 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>Scatterplots are one of the most fundamental tools for visualizing the relationship between two continuous variables. Each point on the plot represents a pair of values, one from each variable, positioned according to its coordinates. This makes scatterplots particularly useful for identifying trends, clusters, and possible outliers in the data, as well as for getting a first impression of whether a relationship might be positive, negative, or absent.</p>
-<p>The simplest scatterplot can be made with the <code>plot()</code> function. For example, in the <code>diabetes</code> dataset, we can examine how Body Mass Index (BMI) relates to Total Cholesterol (TC):</p>
+<p>A boxplot summarizes a numeric variable’s distribution through five key statistics: the minimum, first quartile, median, third quartile, and maximum. It also highlights potential outliers. Boxplots are particularly useful for comparing distributions across groups and are a compact alternative to histograms when you want to quickly compare medians, spreads, and detect asymmetry or extreme values without showing the full shape of the distribution.</p>
+<p>A basic boxplot of the <code>progress</code> variable looks like this:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%$%</span> <span class="fu">plot</span>(<span class="at">y =</span> tc, <span class="at">x =</span> bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>progress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="scatterplots_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="boxplots_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The points form a cloud with a slight upward trend, suggesting that higher BMI values may be associated with higher cholesterol levels, although the variability is substantial.</p>
-<p>We can improve the readability by adding axis labels, a title, and adjusting axis limits. To do this we explicit some parameters: <code>ylab</code> and <code>xlab</code> define descriptive axis labels, <code>main</code> adds a clear title, and <code>ylim</code> and <code>xlim</code> specify the visible range of the axes to focus on the relevant data.</p>
+<p>In this case, the plot shows a median roughly in the middle of the box, fairly balanced whiskers, and no evident extreme outliers, suggesting a relatively symmetric distribution. In boxplots, outliers are typically displayed as individual points beyond the whiskers, which extend to 1.5 times the interquartile range from the box.</p>
+<p>Boxplots in base R accept many of the same parameters as the plot() function, such as axis labels, main titles, and limits, allowing for consistent styling across different plot types. We can also rotate the boxplot horizontally and change the whisker range:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%$%</span> <span class="fu">plot</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> tc,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> bmi,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Total Cholesterol"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Relation between BMI and Cholesterol"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">350</span>),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>progress,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">3</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Disease Progression"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="scatterplots_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="boxplots_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>When <code>plot()</code> is applied to a data frame containing only numeric columns, it generates a scatterplot matrix—a grid showing pairwise relationships:</p>
+<p>To compare groups, we use a formula, where the variable of interest is plotted against a factor:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, bmi, tc, glu, progress) <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(progress <span class="sc">~</span> sex, <span class="at">data =</span> diabetes, <span class="at">col =</span> <span class="st">"violet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="scatterplots_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="boxplots_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>This produces side-by-side boxplots for each group in <code>sex</code>, allowing a quick visual comparison of tendencies and spread.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-practice callout-titled">
@@ -2191,7 +2187,7 @@ Practice
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Using the <code>diabetes</code> dataset, make a scatterplot of age against total cholesterol, with proper axis labels and proper title</p>
+<p>Use base R graphics and the <code>titanic</code> data to create conditional boxplots, where plots of <code>age</code> are conditioned on <code>survived</code>. What does this figure tell you about the ages of survivors (<code>survived</code> = 1) vs.&nbsp;non-survivors (<code>survived</code> = 0)?</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
 <div class="tab-content">
@@ -2200,18 +2196,13 @@ Practice
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%$%</span> <span class="fu">plot</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> tc,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> age,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Total Cholesterol"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Age"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Relation between Age and Cholesterol"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(age <span class="sc">~</span> survived, <span class="at">data =</span> titanic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="scatterplots_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="boxplots_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2654,13 +2645,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../tutorials/basic_graph/index.html" class="pagination-link" aria-label="Base R Graphics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Base R Graphics</span>
+      <a href="../tutorials/hist.html" class="pagination-link" aria-label="Histograms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Histograms</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../tutorials/basic_graph/hist.html" class="pagination-link" aria-label="Histograms">
-        <span class="nav-page-text">Histograms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tutorials/density.html" class="pagination-link" aria-label="Density Plots">
+        <span class="nav-page-text">Density Plots</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -2668,7 +2659,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://uu.nl"><img src="../../assets/images/UU_logo_2021_EN_BLACK.png" class="img-fluid" alt="UU" width="200"></a></p>
+<p><a href="https://uu.nl"><img src="../assets/images/UU_logo_2021_EN_BLACK.png" class="img-fluid" alt="UU" width="200"></a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -2687,8 +2678,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script src="../../js/bootstrapify.js"></script>
-<script src="../../js/webex.js"></script>
+<script src="../js/bootstrapify.js"></script>
+<script src="../js/webex.js"></script>
 <script type="module">
 // Handle cell initialization initialization
 qwebrCellDetails.map(

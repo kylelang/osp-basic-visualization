@@ -1,5 +1,5 @@
 ---
-title: "Module Template"
+title: "Basic Visualization"
 page-navigation: false
 format:
   html: 
@@ -10,20 +10,24 @@ format:
 source(here::here("R", "buttons.R"))
 ```
 
-Welcome to the module on basic data visualization in R. Graphs are a crucial tool in data analysis because they allow us to explore, summarize, and communicate patterns in data that would be difficult to detect through numbers alone. Well-chosen visualizations can reveal trends, clusters, correlations, and outliers at a glance, helping to guide further analysis and support clear, persuasive communication of results.
+Welcome to the module on basic data visualization in R. Graphical visualizations are a crucial tool in data analysis
+because they allow us to explore, summarize, and communicate patterns in data that would be difficult to detect through
+numbers alone. Well-chosen visualizations can reveal trends, clusters, correlations, and outliers at a glance, helping
+to guide further analysis and support clear, persuasive communication of results.
 
-In this module, we will explore the main plotting capabilities built into base R, focusing on four foundational chart types: scatterplots for examining relationships between two numeric variables, histograms for understanding the distribution of a single variable, boxplots for summarizing distributions and comparing groups, and density plots for visualizing the smooth distribution of continuous data. 
-
-Each section combines conceptual explanation with hands-on examples to show how to create and customize these plots in R, highlighting how they can be adapted to different datasets and analysis goals.
+In this module, we will explore the main plotting capabilities built into base R, focusing on four foundational chart
+types: scatterplots, histograms, boxplots, and density plots. Each section combines conceptual explanation with hands-on
+examples to show how to create and customize these plots in R, highlighting how they can be adapted to different
+datasets and analysis goals.
 
 ## Learning Goals
 
-After completing this module, you will be able to:
+After completing this module, you will be able to use Base R functions to create:
 
-1. Create scatterplots to investigate relationships between two variables.
-2. Build histograms to examine the distribution of a numeric variable.
-3. Use boxplots to summarize distributions, detect outliers, and compare groups effectively.
-4. Produce density plots to visualize approximations of a variable’s distribution.
+1. Scatterplots to investigate relationships between two variables
+2. Histograms to examine the distribution of a numeric variable
+3. Boxplots to summarize distributions, detect outliers, and compare groups
+4. Density plots to visualize approximations of a variable’s distribution
 
 Click the button below to get started with the first tutorial.
 

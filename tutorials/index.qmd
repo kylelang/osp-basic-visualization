@@ -1,0 +1,15 @@
+---
+title: "Base R Graphics"
+---
+
+R includes a versatile set of built-in plotting tools that allow us to create a wide range of visualizations without the
+need for additional packages. With these Base R plotting functions you can produce anything from simple scatterplots and
+histograms to more elaborate multi-panel displays.
+
+Plots in Base R are built up step-by-step. You begin with a main plotting function such as `plot()`, `hist()`, or
+`boxplot()`, and then refine the result by adding or adjusting titles, axis labels, colors, and other visual elements.
+This way of working makes Base R graphics particularly useful for exploratory analysis, where it is often important to
+obtain quick visual feedback.
+
+Although more advanced plotting packages like **ggplot2** offer a more structured, layered approach, Base R graphics
+remain useful for rapidly inspecting datasets and creating lightweight graphics without extra dependencies.

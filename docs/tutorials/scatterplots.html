@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scatterplot – OSP Basic Visualization</title>
+<title>Scatterplots – OSP Basic Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,26 +57,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../tutorials/basic_graph/hist.html" rel="next">
-<link href="../../tutorials/basic_graph/index.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tutorials/hist.html" rel="next">
+<link href="../tutorials/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"dpi":72,"message":"true","results":"markup","editor-quick-suggestions":"false","comment":"","read-only":"false","fig-width":7,"fig-height":5,"context":"setup","classes":"","output":"true","label":"unnamed-chunk-1","warning":"true","fig-cap":"","autorun":"true","out-width":"700px","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","editor-max-height":""},"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")\nlibrary(magrittr)","id":1},{"options":{"dpi":72,"message":"true","results":"markup","editor-quick-suggestions":"false","comment":"","read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","classes":"","output":"true","label":"unnamed-chunk-2","warning":"true","fig-cap":"","autorun":"false","out-width":"700px","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","editor-max-height":""},"code":"","id":2}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"autorun":"true","fig-width":7,"context":"setup","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-1","classes":"","fig-height":5,"editor-font-scale":"1","read-only":"false","dpi":72,"out-height":"","output":"true","comment":"","out-width":"700px","message":"true","results":"markup","fig-cap":"","editor-word-wrap":"true","editor-max-height":""},"code":"download.file(\"https://openstatprog.com/raw-data/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")"},{"id":2,"options":{"autorun":"false","fig-width":7,"context":"interactive","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-2","classes":"","fig-height":5,"editor-font-scale":"1","read-only":"false","dpi":72,"out-height":"","output":"true","comment":"","out-width":"700px","message":"true","results":"markup","fig-cap":"","editor-word-wrap":"true","editor-max-height":""},"code":""}];
 
 </script>
 <script type="module">
@@ -1658,19 +1658,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-resource.callout {
-  border-left-color: orange;
-}
-div.callout-resource.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0c1' !important;
-  background-image: none;
-}
 div.callout-practice.callout {
   border-left-color: green;
 }
@@ -1697,6 +1684,19 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
+div.callout-resource.callout {
+  border-left-color: orange;
+}
+div.callout-resource.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c1' !important;
+  background-image: none;
+}
 div.callout-reading-advanced.callout {
   border-left-color: red;
 }
@@ -1713,7 +1713,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
 </style>
 
 
-<link rel="stylesheet" href="../../html/webex.css">
+<link rel="stylesheet" href="../html/webex.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -1733,7 +1733,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
 <span class="menu-text">Open-Stat-Prog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Basic Visualization</span></a>
   </li>  
 </ul>
@@ -1762,7 +1762,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/basic_graph/scatterplots.html">Scatterplot</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/scatterplots.html">Scatterplots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1776,49 +1776,49 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Base R Graphics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/scatterplots.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Scatterplot</span></a>
+  <a href="../tutorials/scatterplots.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Scatterplots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/hist.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/hist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Histograms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/boxplots.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/boxplots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Boxplots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/basic_graph/density.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/density.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Density Plots</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../quizzes/basic_graph/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../quizzes/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Knowledge Quiz</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conclusion.html" class="sidebar-item-text sidebar-link">
+  <a href="../conclusion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conclusion</span></a>
   </div>
 </li>
@@ -2119,7 +2119,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scatterplot</h1>
+<h1 class="title">Scatterplots</h1>
 </div>
 
 
@@ -2136,10 +2136,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>Scatterplots are one of the most fundamental tools for visualizing the relationship between two continuous variables. Each point on the plot represents a pair of values, one from each variable, positioned according to its coordinates. This makes scatterplots particularly useful for identifying trends, clusters, and possible outliers in the data, as well as for getting a first impression of whether a relationship might be positive, negative, or absent.</p>
-<p>The simplest scatterplot can be made with the <code>plot()</code> function. For example, in the <code>diabetes</code> dataset, we can examine how Body Mass Index (BMI) relates to Total Cholesterol (TC):</p>
+<p>Scatterplots are one of the most fundamental tools for visualizing the relationship between two continuous variables (or variables that we wish to treat as continuous). Each point on the plot represents one observational unit’s values on the two plotted variables. This makes scatterplots particularly useful for identifying trends, clusters, and extreme values in the data.</p>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>We make a simple scatterplot with the <code>plot()</code> function. For example, the following code uses the <code>diabetes</code> dataset to visualize the bivariate association between Body Mass Index, <code>bmi</code>, and Total Cholesterol, <code>tc</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%$%</span> <span class="fu">plot</span>(<span class="at">y =</span> tc, <span class="at">x =</span> bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">y =</span> diabetes<span class="sc">$</span>tc, <span class="at">x =</span> diabetes<span class="sc">$</span>bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2148,12 +2150,17 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>The points form a cloud with a slight upward trend, suggesting that higher BMI values may be associated with higher cholesterol levels, although the variability is substantial.</p>
-<p>We can improve the readability by adding axis labels, a title, and adjusting axis limits. To do this we explicit some parameters: <code>ylab</code> and <code>xlab</code> define descriptive axis labels, <code>main</code> adds a clear title, and <code>ylim</code> and <code>xlim</code> specify the visible range of the axes to focus on the relevant data.</p>
+<p>In this example, every point represents a different patient’s value of BMI and their level of total cholesterol. The points form a cloud with a slight upward trend, suggesting that higher BMI values tend to be associated with higher cholesterol levels, although the variability is substantial.</p>
+<p>We can improve the readability by adding axis labels, a title, and adjusting the axis limits. To do so we adjust the following parameters.</p>
+<ul>
+<li><code>ylab</code>, <code>xlab</code>: Define new axis labels</li>
+<li><code>main</code>: Add a plot title</li>
+<li><code>ylim</code>, <code>xlim</code>: Define the ranges of the y-axis and x-axis</li>
+</ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%$%</span> <span class="fu">plot</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> tc,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> bmi,</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> diabetes<span class="sc">$</span>tc,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> diabetes<span class="sc">$</span>bmi,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Total Cholesterol"</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Relation between BMI and Cholesterol"</span>,</span>
@@ -2168,9 +2175,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>When <code>plot()</code> is applied to a data frame containing only numeric columns, it generates a scatterplot matrix—a grid showing pairwise relationships:</p>
+<p>When we apply <code>plot()</code> to a data frame containing only numeric columns, we generate a scatterplot matrix: a grid of scatterplots showing all the pairwise relationships.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, bmi, tc, glu, progress) <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diabetes[<span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"bmi"</span>, <span class="st">"tc"</span>, <span class="st">"glu"</span>, <span class="st">"progress"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2179,8 +2186,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-practice callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2191,7 +2196,10 @@ Practice
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Using the <code>diabetes</code> dataset, make a scatterplot of age against total cholesterol, with proper axis labels and proper title</p>
+<p>Using the <code>diabetes</code> dataset, make a scatterplot of <em>total cholesterol</em> on the y-axis against <em>age</em> on the x-axis. Add meaningful axis labels and a title.</p>
+<ul>
+<li>The <code>diabetes</code> dataset is already loaded in the working directory of this <em>webr</em> session.</li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
 <div class="tab-content">
@@ -2201,9 +2209,9 @@ Practice
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">%$%</span> <span class="fu">plot</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> tc,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> age,</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> diabetes<span class="sc">$</span>tc,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> diabetes<span class="sc">$</span>age,</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Total Cholesterol"</span>,</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Age"</span>,</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Relation between Age and Cholesterol"</span>,</span>
@@ -2654,12 +2662,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../tutorials/basic_graph/index.html" class="pagination-link" aria-label="Base R Graphics">
+      <a href="../tutorials/index.html" class="pagination-link" aria-label="Base R Graphics">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Base R Graphics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../tutorials/basic_graph/hist.html" class="pagination-link" aria-label="Histograms">
+      <a href="../tutorials/hist.html" class="pagination-link" aria-label="Histograms">
         <span class="nav-page-text">Histograms</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2668,7 +2676,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://uu.nl"><img src="../../assets/images/UU_logo_2021_EN_BLACK.png" class="img-fluid" alt="UU" width="200"></a></p>
+<p><a href="https://uu.nl"><img src="../assets/images/UU_logo_2021_EN_BLACK.png" class="img-fluid" alt="UU" width="200"></a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -2687,8 +2695,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script src="../../js/bootstrapify.js"></script>
-<script src="../../js/webex.js"></script>
+<script src="../js/bootstrapify.js"></script>
+<script src="../js/webex.js"></script>
 <script type="module">
 // Handle cell initialization initialization
 qwebrCellDetails.map(
