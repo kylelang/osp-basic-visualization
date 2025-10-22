@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"context":"setup","editor-word-wrap":"true","out-width":"700px","fig-width":7,"message":"true","output":"true","dpi":72,"fig-cap":"","out-height":"","label":"unnamed-chunk-1","editor-quick-suggestions":"false","autorun":"true","classes":"","editor-font-scale":"1","warning":"true","read-only":"false","results":"markup","editor-max-height":"","comment":"","fig-height":5},"id":1,"code":"download.file(\"https://openstatprog.com/raw-data/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")"},{"options":{"context":"interactive","editor-word-wrap":"true","out-width":"700px","fig-width":7,"message":"true","output":"true","dpi":72,"fig-cap":"","out-height":"","label":"unnamed-chunk-2","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-font-scale":"1","warning":"true","read-only":"false","results":"markup","editor-max-height":"","comment":"","fig-height":5},"id":2,"code":""}];
+globalThis.qwebrCellDetails = [{"code":"download.file(\"https://openstatprog.com/raw-data/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")","id":1,"options":{"dpi":72,"read-only":"false","comment":"","classes":"","editor-max-height":"","editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"fig-cap":"","out-width":"700px","context":"setup","editor-word-wrap":"true","output":"true","warning":"true","autorun":"true","message":"true","results":"markup","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-1"}},{"code":"","id":2,"options":{"dpi":72,"read-only":"false","comment":"","classes":"","editor-max-height":"","editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"fig-cap":"","out-width":"700px","context":"interactive","editor-word-wrap":"true","output":"true","warning":"true","autorun":"false","message":"true","results":"markup","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-2"}}];
 
 </script>
 <script type="module">
@@ -1658,32 +1658,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-practice.callout {
-  border-left-color: green;
-}
-div.callout-practice.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
-}
-div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f085' !important;
-  background-image: none;
-}
-div.callout-resource.callout {
-  border-left-color: orange;
-}
-div.callout-resource.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
-}
-div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f0c1' !important;
-  background-image: none;
-}
 div.callout-reading-advanced.callout {
   border-left-color: red;
 }
@@ -1708,6 +1682,32 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f518' !important;
+  background-image: none;
+}
+div.callout-resource.callout {
+  border-left-color: orange;
+}
+div.callout-resource.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
+}
+div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f0c1' !important;
+  background-image: none;
+}
+div.callout-practice.callout {
+  border-left-color: green;
+}
+div.callout-practice.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f085' !important;
   background-image: none;
 }
 </style>
