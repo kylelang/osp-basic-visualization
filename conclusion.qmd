@@ -11,16 +11,22 @@ format:
 source(here::here("R", "buttons.R"))
 ```
 
-By now, you have learned how to create and customize four of the most fundamental plot types in base R—scatterplots, histograms, boxplots, and density plots. You’ve seen how these visualizations can uncover relationships, highlight patterns, and summarize key features of your data. You also practiced adjusting labels, limits, colors, and other parameters to make your graphics clearer and more informative. These skills form the visual foundation for any data analysis workflow, enabling you to explore data quickly and communicate findings effectively.
+By completing this module, you've taken your first steps toward data visualization with R. You've learned how to use
+Base R graphics to create some of the most useful types of data visualization: histograms, boxplots, bar plots, and
+scatterplots. You also learned how to convert univariate plots into conditional plots and how to add layers to plots to
+increase the information provided by a single figure.
 
 ## Next Steps
 
-Base R graphics are a solid starting point, but for more complex, customizable, and publication-ready plots, the next module introduces ggplot2. You’ll learn its layered grammar of graphics, giving you a powerful and consistent way to build elegant visualizations.
-
-- Here, we're linking to the *First Steps* module.
+Base R graphics are a solid starting point, and the kinds of figures we covered in this module are a useful for model
+diagnostics, data screening, and exploratory data analysis. To create complex, publication-ready figures, however, you
+will probably want something more. To continue your data visualization journey, we recommend following the *Data
+Visualization with GGPlot* module where you will learn how to use the GGPlot visualization suite to create
+publication-quality figures in R.
 
 ```{r}
 #| echo: false
 #| results: asis
-next_module_button("https://www.openstatprog.com/first-steps/")
+# next_module_button("https://www.openstatprog.com/ggplot/")
+next_module_button("in_progress.html")
 ```

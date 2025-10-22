@@ -1,0 +1,10 @@
+---
+title: "Bivariate Visualizations"
+---
+
+In the second part of this module, we will cover visualizations that allow us to scrutinize the bivariate distribution
+of two variables.
+
+Such bivariate visualizations allow us to inspect the nature of the association between two numeric variables, for
+example, or how the distribution of a numeric variable differs between groups. Hence, bivariate visualizations are very
+useful for exploratory data analysis and diagnosing issues in statistical models like linear regression.

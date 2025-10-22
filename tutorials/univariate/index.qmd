@@ -1,0 +1,10 @@
+---
+title: "Univariate Visualizations"
+---
+
+We will begin this module by exploring some of the main *univariate visualizations* that we can create using Base R
+graphics.
+
+One of the primary reasons we use data visualization is to scrutinize the univariate distributions of individual
+variables in our data. For example, we may want to check how closely some variables follow a normal distribution, or we
+might want to screen for extreme values. Univariate visualizations are ideally suited to these types of analysis.

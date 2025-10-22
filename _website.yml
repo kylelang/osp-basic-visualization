@@ -1,8 +1,8 @@
 website:
 
-  title: "OSP Module Template"
+  title: "OSP Basic Visualization"
 
-  site-url: "https://www.openstatprog.com/module-template/"
+  site-url: "https://www.openstatprog.com/basic-visualization/"
 
   page-navigation: true
 
@@ -30,15 +30,20 @@ website:
     contents:
       - href: index.qmd
         text: "Overview"
-      - section: tutorials/basic_graph/index.qmd
-        text: "Basic Visualization"
+      - section: tutorials/univariate/index.qmd
         contents:
-        - href: tutorials/basic_graph/scatterplots.qmd
-        - href: tutorials/basic_graph/hist.qmd
-        - href: tutorials/basic_graph/boxplots.qmd
-        - href: tutorials/basic_graph/density.qmd
-        - href: quizzes/basic_graph/index.qmd
-          text: "Knowledge Quiz"
+        - href: tutorials/univariate/histogram.qmd
+        # - href: tutorials/univariate/density.qmd
+        - href: tutorials/univariate/boxplot.qmd
+        - href: tutorials/univariate/barplot.qmd
+        # - href: quizzes/univariate/index.qmd
+        #   text: "Knowledge Quiz"
+      - section: tutorials/bivariate/index.qmd
+        contents:
+        - href: tutorials/bivariate/scatterplot.qmd
+        - href: tutorials/bivariate/conditional.qmd
+        # - href: quizzes/bivariate/index.qmd
+        #   text: "Knowledge Quiz"
       - href: conclusion.qmd
 
   page-footer:

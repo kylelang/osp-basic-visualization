@@ -1,0 +1,131 @@
+---
+title: "Boxplots"
+---
+
+```{r, echo = FALSE}
+diabetes <- readRDS(here::here("data", "diabetes.rds"))
+titanic <- readRDS(here::here("data", "titanic.rds"))
+```
+
+The boxplot (AKA, box-and-whiskers plot) is one of the most enduring contributions of Tukey's seminal book [*Exploratory
+Data Analysis*][eda_book]. A boxplot is a visualization of a numeric variable's so-call "five-number-summary" that
+quantifies a variable's distribution through five order statistics: minimum, first quartile, median, third quartile,
+maximum. Boxplots are particularly useful for evaluating the spread and symmetry of a distribution and checking for
+extreme values.
+
+We use the `boxplot()` function to create a boxplot with Base R graphics. For example, the following code creates a
+basic boxplot of the `progress` variable from the `diabetes` dataset.
+
+```{r}
+boxplot(diabetes$bmi)
+```
+
+In this case, the plot indicates some positive skew: the median falls closer to the first quartile than the third
+quartile, and the upper whisker is longer than the lower whisker.
+
+### Defining the Whiskers
+
+The "box" part of a box-and-whiskers plot is always defined by first and third quartiles, $Q_1$ and $Q_3$, with the
+median drawn somewhere inside the box. So, this box tells us something about the symmetry and spread of the middle 50%
+of the distribution.
+
+The "whiskers", on the other hand, tell us about the tails of the distribution. We can defined the whiskers in several
+different ways to target specific information. In the default boxplot, the whiskers are defined in terms of the
+*inner-quartile range* $\textrm{IQR} = Q_3 - Q_1$.
+
+- Lower whisker: $Q_1 - 1.5 \times \textrm{IQR}$
+- Upper whisker: $Q_3 + 1.5 \times \textrm{IQR}$
+
+We can change the weight applied to the IQR via the `range` argument. The following code defines the whisker margin as
+$2 \times \textrm{IQR}$.
+
+```{r}
+boxplot(diabetes$bmi,
+        range = 2,
+        xlab = "Body Mass Index",
+        main = "Margin = 3 * IQR")
+```
+
+To use the minimum and maximum values to define the whiskers, we set `range = 0`.
+
+```{r}
+boxplot(diabetes$bmi,
+        range = 0,
+        xlab = "Body Mass Index",
+        main = "Min/Max Whiskers")
+
+```
+
+### Boxplots for Outlier Analysis
+
+Any observations that fall outside the interval defined by the whiskers are plotted as individual points. This behavior
+makes boxplots a handy way to check for extreme values (i.e., outliers). If we set the whiskers so they define the range
+of plausible values, any points that fall outside the whiskers are possible outliers. 
+
+A common convention is to use a margin of $1.5 \times \textrm{IQR}$ to flag "possible" outliers and a margin of $3
+\times \textrm{IQR}$ to flag "probable" outliers.
+
+```{r, echo = FALSE}
+nOut1.5 <- boxplot.stats(diabetes$bmi, coef = 1.5)$out |> length()
+nOut3   <- boxplot.stats(diabetes$bmi, coef = 3)$out |> length()
+```
+
+```{r}
+boxplot(diabetes$bmi,
+        range = 1.5,
+        xlab = "Body Mass Index",
+        main = "Possible Outliers")
+```
+
+```{r}
+boxplot(diabetes$bmi,
+        range = 3,
+        xlab = "Body Mass Index",
+        main = "Probable Outliers")
+```
+
+In this case, we see that `r nOut1.5` observations are flagged as possible outliers, and `r nOut3` observations are
+flagged as probable outliers.
+
+```{webr-r}
+#| autorun: true
+#| context: setup
+
+download.file("https://openstatprog.com/raw-data/titanic.rds", "titanic.rds")
+titanic <- readRDS("titanic.rds")
+```
+
+::: practice
+
+## Practice
+
+Use the `titanic` data to create a boxplot of `age`.
+
+- Use a margin of $2 \times \textrm{IQR}$ to define the whiskers.
+- Add a better plot title
+- Add a better label for the x-axis
+
+*NOTE:* The `titanic` dataset is already loaded in the working directory of this *webr* session.
+
+:::: {.panel-tabset}
+## {{< var tab_title.editor >}}
+
+```{webr-r}
+
+```
+
+## {{< var tab_title.solution >}}
+
+```{r}
+boxplot(
+  titanic$age,
+  range = 2,
+  xlab = "Age",
+  main = "Ages of Titanic Passengers"
+)
+```
+::::
+
+:::
+
+[eda_book]: https://www.google.com/books/edition/Exploratory_Data_Analysis/UT9dAAAAIAAJ?hl=en
