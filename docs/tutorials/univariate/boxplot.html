@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-height":"","fig-width":7,"dpi":72,"message":"true","fig-cap":"","warning":"true","context":"setup","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-1","fig-height":5,"classes":"","read-only":"false","output":"true","results":"markup","autorun":"true","editor-max-height":"","out-width":"700px","comment":"","editor-quick-suggestions":"false"},"code":"download.file(\"https://openstatprog.com/raw-data/titanic.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")","id":1},{"options":{"out-height":"","fig-width":7,"dpi":72,"message":"true","fig-cap":"","warning":"true","context":"interactive","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-2","fig-height":5,"classes":"","read-only":"false","output":"true","results":"markup","autorun":"false","editor-max-height":"","out-width":"700px","comment":"","editor-quick-suggestions":"false"},"code":"","id":2}];
+globalThis.qwebrCellDetails = [{"code":"download.file(\"https://openstatprog.com/raw-data/titanic.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")","options":{"label":"unnamed-chunk-1","output":"true","warning":"true","editor-max-height":"","autorun":"true","fig-height":5,"message":"true","comment":"","editor-word-wrap":"true","classes":"","fig-width":7,"results":"markup","context":"setup","out-height":"","dpi":72,"out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","read-only":"false","editor-font-scale":"1"},"id":1},{"code":"","options":{"label":"unnamed-chunk-2","output":"true","warning":"true","editor-max-height":"","autorun":"false","fig-height":5,"message":"true","comment":"","editor-word-wrap":"true","classes":"","fig-width":7,"results":"markup","context":"interactive","out-height":"","dpi":72,"out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","read-only":"false","editor-font-scale":"1"},"id":2}];
 
 </script>
 <script type="module">
@@ -1658,6 +1658,19 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
+div.callout-reading.callout {
+  border-left-color: purple;
+}
+div.callout-reading.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
+}
 div.callout-practice.callout {
   border-left-color: green;
 }
@@ -1679,19 +1692,6 @@ div.callout-reading-advanced.callout-style-default > .callout-header {
 }
 div.callout-reading-advanced .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
 div.callout-reading-advanced.callout-style-default .callout-icon::before, div.callout-reading-advanced.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
-div.callout-reading.callout {
-  border-left-color: purple;
-}
-div.callout-reading.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f518' !important;
@@ -1833,7 +1833,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tutorials/univariate/barplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Histograms</span></a>
+ <span class="menu-text">Bar Plots</span></a>
   </div>
 </li>
       </ul>
@@ -1856,7 +1856,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tutorials/bivariate/conditional.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Boxplots</span></a>
+ <span class="menu-text">Conditional &amp; Combined Plots</span></a>
   </div>
 </li>
       </ul>
@@ -2756,8 +2756,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../tutorials/univariate/barplot.html" class="pagination-link" aria-label="Histograms">
-        <span class="nav-page-text">Histograms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../tutorials/univariate/barplot.html" class="pagination-link" aria-label="Bar Plots">
+        <span class="nav-page-text">Bar Plots</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional Plots – OSP Basic Visualization</title>
+<title>Conditional &amp; Combined Plots – OSP Basic Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"results":"markup","comment":"","classes":"","fig-cap":"","editor-max-height":"","fig-width":7,"read-only":"false","label":"unnamed-chunk-1","autorun":"true","editor-quick-suggestions":"false","message":"true","context":"setup","editor-font-scale":"1","dpi":72,"warning":"true","out-width":"700px","output":"true","editor-word-wrap":"true","fig-height":5,"out-height":""},"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")\nlibrary(magrittr)","id":1},{"options":{"results":"markup","comment":"","classes":"","fig-cap":"","editor-max-height":"","fig-width":7,"read-only":"false","label":"unnamed-chunk-2","autorun":"false","editor-quick-suggestions":"false","message":"true","context":"interactive","editor-font-scale":"1","dpi":72,"warning":"true","out-width":"700px","output":"true","editor-word-wrap":"true","fig-height":5,"out-height":""},"code":"","id":2}];
+globalThis.qwebrCellDetails = [{"code":"download.file(\"https://openstatprog.com/raw-data/titanic.rds\", \"titanic.rds\")\ndownload.file(\"https://openstatprog.com/raw-data/diabetes.rds\", \"diabetes.rds\")\n\ntitanic <- readRDS(\"titanic.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")","id":1,"options":{"dpi":72,"context":"setup","editor-word-wrap":"true","warning":"true","autorun":"true","results":"markup","fig-cap":"","message":"true","fig-height":5,"output":"true","editor-quick-suggestions":"false","classes":"","read-only":"false","out-height":"","out-width":"700px","comment":"","fig-width":7,"label":"unnamed-chunk-1","editor-font-scale":"1","editor-max-height":""}},{"code":"","id":2,"options":{"dpi":72,"context":"interactive","editor-word-wrap":"true","warning":"true","autorun":"false","results":"markup","fig-cap":"","message":"true","fig-height":5,"output":"true","editor-quick-suggestions":"false","classes":"","read-only":"false","out-height":"","out-width":"700px","comment":"","fig-width":7,"label":"unnamed-chunk-2","editor-font-scale":"1","editor-max-height":""}},{"code":"","id":3,"options":{"dpi":72,"context":"interactive","editor-word-wrap":"true","warning":"true","autorun":"false","results":"markup","fig-cap":"","message":"true","fig-height":5,"output":"true","editor-quick-suggestions":"false","classes":"","read-only":"false","out-height":"","out-width":"700px","comment":"","fig-width":7,"label":"unnamed-chunk-3","editor-font-scale":"1","editor-max-height":""}},{"code":"","id":4,"options":{"dpi":72,"context":"interactive","editor-word-wrap":"true","warning":"true","autorun":"false","results":"markup","fig-cap":"","message":"true","fig-height":5,"output":"true","editor-quick-suggestions":"false","classes":"","read-only":"false","out-height":"","out-width":"700px","comment":"","fig-width":7,"label":"unnamed-chunk-4","editor-font-scale":"1","editor-max-height":""}}];
 
 </script>
 <script type="module">
@@ -1658,19 +1658,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-reading.callout {
-  border-left-color: purple;
-}
-div.callout-reading.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
-}
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
 div.callout-practice.callout {
   border-left-color: green;
 }
@@ -1682,6 +1669,19 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f085' !important;
+  background-image: none;
+}
+div.callout-reading.callout {
+  border-left-color: purple;
+}
+div.callout-reading.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f518' !important;
   background-image: none;
 }
 div.callout-resource.callout {
@@ -1762,7 +1762,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Conditional Plots</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Conditional &amp; Combined Plots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1827,7 +1827,7 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tutorials/bivariate/conditional.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Conditional Plots</span></a>
+ <span class="menu-text">Conditional &amp; Combined Plots</span></a>
   </div>
 </li>
       </ul>
@@ -1849,6 +1849,9 @@ div.callout-reading-advanced.callout-style-default .callout-icon::before, div.ca
    
   <ul>
   <li><a href="#boxplots" id="toc-boxplots" class="nav-link active" data-scroll-target="#boxplots">Boxplots</a></li>
+  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots">Bar Plots</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a></li>
   </ul>
 </nav>
     </div>
@@ -2139,9 +2142,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Conditional Plots</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Conditional &amp; Combined Plots</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Conditional Plots</h1>
+<h1 class="title">Conditional &amp; Combined Plots</h1>
 </div>
 
 
@@ -2161,7 +2164,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>We can convert most univariate visualizations that we create with Base R graphics into conditional plots by specifying a grouping factor. We then get a single figure with group-specific versions of the univariate visualization.</p>
 <section id="boxplots" class="level3">
 <h3 class="anchored" data-anchor-id="boxplots">Boxplots</h3>
-<p>We can use conditional boxplots to compare the distribution of a variable accross groups. To create this type of figure, we employ the so-called <em>formula interface</em> when calling the <code>boxplot()</code> function. In the following code, we use the <code>diabetes</code> dataset to create sex-specific boxplots of disease progression.</p>
+<p>We can use conditional boxplots to compare the distribution of a variable across groups. To create this type of figure, we employ the so-called <em>formula interface</em> when calling the <code>boxplot()</code> function. In the following code, we use the <code>diabetes</code> dataset to create sex-specific boxplots of disease progression.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(progress <span class="sc">~</span> sex, <span class="at">data =</span> diabetes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2172,7 +2175,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>When we use the formula interface, we specify the plotted variable on the left hand side of the formula and we put the grouping factor on the righthand side of the formula. We also have to specify a data frame where <code>boxplot()</code> can find the variables we’re referencing in the formula.</p>
+<p>When we use the formula interface, we define the plot’s structure through an R formula object that we specify as the first argument to <code>boxplot()</code>. In this formula, <code>progress ~ sex1</code>, we specify the plotted variable on the left-hand side of the formula and we put the grouping factor on the right-hand side of the formula. We also have to use the <code>data</code> argument to specify a data frame where <code>boxplot()</code> can find the variables we’re referencing in the formula.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-practice callout-titled">
@@ -2185,7 +2188,11 @@ Practice
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use base R graphics and the <code>titanic</code> data to create conditional boxplots, where plots of <code>age</code> are conditioned on <code>survived</code>. What does this figure tell you about the ages of survivors (<code>survived</code> = 1) vs.&nbsp;non-survivors (<code>survived</code> = 0)?</p>
+<p>Use the <code>titanic</code> dataset to create a conditional boxplot to visualize the distributions of <code>age</code> within the groups defined by the <code>survived</code> variable.</p>
+<ul>
+<li>What does this figure tell you about the ages of survivors (<code>survived = 'yes'</code>) vs.&nbsp;non-survivors (<code>survived = 'no'</code>)?</li>
+</ul>
+<p><em>NOTE:</em> The <code>titanic</code> dataset is already loaded into the working directory of this <em>webr</em> session.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
 <div class="tab-content">
@@ -2194,7 +2201,6 @@ Practice
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(age <span class="sc">~</span> survived, <span class="at">data =</span> titanic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2205,6 +2211,233 @@ Practice
 </div>
 </div>
 </div>
+<p>The median age does not seem to differ much between the two groups, but the survivors’ distribution appears to be more symmetric, and there are fewer old survivors. The non-survivors’ distribution is positively skewed by the disproportionately higher number of fatalities among older passengers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-plots" class="level3">
+<h3 class="anchored" data-anchor-id="bar-plots">Bar Plots</h3>
+<p>Conditional bar plots visualize two dimensional contingency tables. So, these types of figure allow us to evaluate how the distribution of one categorical variable differs across levels of some other variable.</p>
+<p>To create a conditional bar plot, we fist create a two-way contingency table, and then we plot that table with the <code>barplot()</code> function In the following code we use the <code>titanic</code> dataset to visualize the conditional distributions of ticket classes for the two survival groups.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-tabulate ticket class and survival status</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(titanic<span class="sc">$</span>class, titanic<span class="sc">$</span>survived)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the table created above</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The default bar plot created above suffers from two important problems.</p>
+<ol type="1">
+<li>The bars for each ticket class group are stacked, so the meaning of the values shown on the y-axis is ambiguous</li>
+<li>We don’t know which ticket group is represented by which color.</li>
+</ol>
+<p>We can solve these problems by plotting the bars beside each other by setting <code>beside = TRUE</code> and drawing a legend by setting <code>legend = TRUE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a better visualization of the table</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(tab, <span class="at">beside =</span> <span class="cn">TRUE</span>, <span class="at">legend =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, we have a useful visualization. From this figure, we can clearly see that the relative survival rates of passengers traveling in third class were much worse than the survival rates of other passengers.</p>
+<div class="callout callout-style-default callout-practice callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the <code>titanic</code> dataset to create a conditional bar plot to visualize the distributions of survival status within the gender groups defined by the <code>sex</code> variable.</p>
+<ul>
+<li>Draw the bars beside each other</li>
+<li>Add a legend to the figure</li>
+<li>Give the x-axis a good label</li>
+<li>Give the plot a good title</li>
+</ul>
+<p>What does this figure tell you about relative rates of survival between male and female passengers on the Titanic?</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(titanic<span class="sc">$</span>sex, titanic<span class="sc">$</span>survived)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  tab, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">beside =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Survived"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Survival Status of Titanic Passengers by Gender"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The relative survival rates are much better for female passengers. The number of males in the <code>survived = 'no'</code> group is much higher than the number of females, and the patterns is reversed in the <code>survived = 'yes'</code> group.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="histograms" class="level3">
+<h3 class="anchored" data-anchor-id="histograms">Histograms</h3>
+<p>When generating histograms, we can’t really create the same kind of conditional plots that we can with boxplots and bar plots, but we can overlay different plot layers to add useful information to our figure.</p>
+<p>For example, in the following code, we draw a kernel density plot on top of an existing histogram.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a basic histogram of blood glucose levels</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the kernel density estimate of blood glucose levels</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">density</span>(diabetes<span class="sc">$</span>glu)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Overlay the kernel density curve on the histogram</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">y =</span> d<span class="sc">$</span>y, <span class="at">x =</span> d<span class="sc">$</span>x, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this case, we cannot use the <code>plot()</code> function to create the kernel density layer since <code>plot()</code> would just replace the existing histogram with a new figure. Rather, we use the <code>lines()</code> function to add the appropriate curve as a new layer in the existing plot. Note that we’re explicitly extracting the <code>x</code> and <code>y</code> vectors from the object returned by <code>density()</code> to define the x and y coordinates of the line.</p>
+<p>The Base R graphical suite offers many functions like <code>lines()</code> that add layers to existing plots. In the next example, we use the <code>abline()</code> function to add two dashed lines to denote the boundaries of the region containing the central 90% of observations.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a basic histogram of average blood pressure levels</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>bp)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the boundaries of the central interval containing 90% of observations</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> <span class="fu">quantile</span>(diabetes<span class="sc">$</span>bp, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add dashed lines to denoting the upper and lower 5% tail area cutoffs</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> ci, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplots" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplots">Scatterplots</h3>
+<p>We can apply the same type of layering process to mark up scatterplots with additional information. In the following example, we add the least squares best fit line to a scatterplot showing the relation between average blood pressure, <code>bp</code>, and blood glucose levels, <code>glu</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatterplot of blood pressure against blood glucose</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bp <span class="sc">~</span> glu, <span class="at">data =</span> diabetes, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the linear regression of blood pressure on blood glucose</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>lmOut <span class="ot">&lt;-</span> <span class="fu">lm</span>(bp <span class="sc">~</span> glu, <span class="at">data =</span> diabetes)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the best fit line to the scatterplot</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">reg =</span> lmOut, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Again, we use the <code>abline()</code> function to overlay a line onto the existing plot. In this case, however, we define the line based on the estimated regression coefficients stored in the <code>lmOut</code> object that we created with the <code>lm()</code> function.</p>
+<div class="callout callout-style-default callout-practice callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the <code>diabetes</code> dataset to create a scatterplot with average blood pressure, <code>bp</code>, on the y-axis and body mass index, <code>bmi</code> on the x-axis.</p>
+<ul>
+<li>Draw the points as solid black squares.</li>
+<li>Add better axis labels.</li>
+<li>Add a better plot title.</li>
+</ul>
+<p>Add a horizontal line to the scatterplot showing the mean of the <code>bp</code> variable.</p>
+<ul>
+<li>Draw the line as a dotted black line.</li>
+</ul>
+<p>Add the best fit line from a linear regression model where <code>bmi</code> predicts <code>bp</code>.</p>
+<ul>
+<li>Draw the line as a solid, red line.</li>
+<li>Increase the width of the line to improve legibility.</li>
+</ul>
+<p>What does this figure tell you about relation between body mass index and average blood pressure?</p>
+<p><em>NOTE:</em> The <code>diabetes</code> dataset is already loaded into the working directory of the <em>webr</em> session.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false"><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i> Hint</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>To implement the visual adjustments to the points and lines, you will need to adjust the values of the following parameters in various function calls.</p>
+<ul>
+<li><code>pch</code></li>
+<li><code>lty</code></li>
+<li><code>lwd</code></li>
+<li><code>col</code></li>
+</ul>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the scatterplot</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  bp <span class="sc">~</span> bmi,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> diabetes,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">15</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Blood Pressure"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Association between BMI and Average Blood Pressure"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the horizontal rule</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(diabetes<span class="sc">$</span>bp), <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the regression model</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>lmOut <span class="ot">&lt;-</span> <span class="fu">lm</span>(bp <span class="sc">~</span> bmi, <span class="at">data =</span> diabetes)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the best fit line from the above regression</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">reg =</span> lmOut, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="conditional_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We see what looks like a strong, positive effect of BMI on blood pressure. In other words, higher BMI tends to be associated with higher blood pressure levels.</p>
 </div>
 </div>
 </div>
