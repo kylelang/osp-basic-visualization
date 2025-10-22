@@ -20,6 +20,20 @@ types: scatterplots, histograms, boxplots, and density plots. Each section combi
 examples to show how to create and customize these plots in R, highlighting how they can be adapted to different
 datasets and analysis goals.
 
+## Base R Graphics
+
+R includes a versatile set of built-in plotting tools that allow us to create a wide range of visualizations without the
+need for additional packages. With these Base R plotting functions you can produce anything from simple scatterplots and
+histograms to more elaborate multi-panel displays.
+
+Plots in Base R are built up step-by-step. You begin with a main plotting function such as `plot()`, `hist()`, or
+`boxplot()`, and then refine the result by adding or adjusting titles, axis labels, colors, and other visual elements.
+This way of working makes Base R graphics particularly useful for exploratory analysis, where it is often important to
+obtain quick visual feedback.
+
+Although more advanced plotting packages like **ggplot2** offer a more structured, layered approach, Base R graphics
+remain useful for rapidly inspecting datasets and creating lightweight graphics without extra dependencies.
+
 ## Learning Goals
 
 After completing this module, you will be able to use Base R functions to create:
@@ -34,5 +48,5 @@ Click the button below to get started with the first tutorial.
 ```{r}
 #| echo: false
 #| results: asis
-begin_button("/tutorials/basic_graph/index.html")
+begin_button("/tutorials/univariate/index.html")
 ```

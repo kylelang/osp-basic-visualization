@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://www.openstatprog.com/basic-visualization/index.html</loc>
-    <lastmod>2025-10-21T10:47:17.611Z</lastmod>
+    <lastmod>2025-10-22T08:46:18.875Z</lastmod>
   </url>
   <url>
     <loc>https://www.openstatprog.com/basic-visualization/tutorials/basic_graph/index.html</loc>
@@ -99,5 +99,65 @@
   <url>
     <loc>https://www.openstatprog.com/basic-visualization/tutorials/index.html</loc>
     <lastmod>2025-10-21T10:56:45.892Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/univariate/index.html</loc>
+    <lastmod>2025-10-22T08:53:40.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/univariate/density.html</loc>
+    <lastmod>2025-08-28T16:16:56.126Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/bivariate/scatterplot.html</loc>
+    <lastmod>2025-10-21T13:12:55.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/bivariate/conditional.html</loc>
+    <lastmod>2025-10-22T08:43:19.963Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/univariate/questions/default_arguments2.html</loc>
+    <lastmod>2025-10-22T08:42:28.745Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/univariate/index.html</loc>
+    <lastmod>2025-10-22T09:02:10.671Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/bivariate/questions/default_arguments2.html</loc>
+    <lastmod>2025-08-28T16:16:56.119Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/bivariate/index.html</loc>
+    <lastmod>2025-10-22T09:02:39.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/bivariate/questions/arithmetic2.html</loc>
+    <lastmod>2025-08-28T16:16:56.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/bivariate/questions/logical.html</loc>
+    <lastmod>2025-08-28T16:16:56.120Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/univariate/questions/arithmetic2.html</loc>
+    <lastmod>2025-10-22T08:42:28.744Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/quizzes/univariate/questions/logical.html</loc>
+    <lastmod>2025-10-22T08:42:28.746Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/bivariate/index.html</loc>
+    <lastmod>2025-10-22T08:59:41.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/univariate/boxplot.html</loc>
+    <lastmod>2025-08-28T16:16:56.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openstatprog.com/basic-visualization/tutorials/univariate/histogram.html</loc>
+    <lastmod>2025-10-22T08:35:03.162Z</lastmod>
   </url>
 </urlset>

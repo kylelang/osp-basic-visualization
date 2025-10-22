@@ -30,13 +30,19 @@ website:
     contents:
       - href: index.qmd
         text: "Overview"
-      - href: tutorials/index.qmd
-      - href: tutorials/scatterplots.qmd
-      - href: tutorials/hist.qmd
-      - href: tutorials/boxplots.qmd
-      - href: tutorials/density.qmd
-      - href: quizzes/index.qmd
-        text: "Knowledge Quiz"
+      - section: tutorials/univariate/index.qmd
+        contents:
+        - href: tutorials/univariate/histogram.qmd
+        - href: tutorials/univariate/density.qmd
+        - href: tutorials/univariate/boxplot.qmd
+        # - href: quizzes/univariate/index.qmd
+        #   text: "Knowledge Quiz"
+      - section: tutorials/bivariate/index.qmd
+        contents:
+        - href: tutorials/bivariate/scatterplot.qmd
+        - href: tutorials/bivariate/conditional.qmd
+        # - href: quizzes/bivariate/index.qmd
+        #   text: "Knowledge Quiz"
       - href: conclusion.qmd
 
   page-footer:

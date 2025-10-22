@@ -1,5 +1,5 @@
 ---
-title: "Knowledge Quiz: Tutorial 1"
+title: "Knowledge Quiz: Univariate Visualizations"
 ---
 
 ::: {.column-margin}
@@ -21,6 +21,6 @@ exams2forms::exams2forms(
     "arithmetic2.Rmd",
     "default_arguments2.Rmd"
   ),
-  edir = here::here("quizzes", "basic_graph", "questions")
+  edir = here::here("quizzes", "univariate", "questions")
 )
 ```

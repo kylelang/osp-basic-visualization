@@ -219,5 +219,210 @@
       "Open-Stat-Prog",
       "Base R Graphics"
     ]
+  },
+  {
+    "objectID": "tutorials/univariate/index.html",
+    "href": "tutorials/univariate/index.html",
+    "title": "Univariate Visualizations",
+    "section": "",
+    "text": "We will begin this module by exploring some of the main univariate visualizations that we can create using Base R graphics.\nOne of the primary reasons we use data visualization is to scrutinize the univariate distributions of individual variables in our data. For example, we may want to check how closely some variables follow a normal distribution, or we might want to screen for extreme values. Univariate visualizations are ideally suited to these types of analysis.\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Univariate Visualizations"
+    ]
+  },
+  {
+    "objectID": "tutorials/univariate/density.html",
+    "href": "tutorials/univariate/density.html",
+    "title": "Density Plots",
+    "section": "",
+    "text": "A density plot provides a smooth estimate of a continuous variable’s distribution using density estimation. Unlike histograms, density plots are not dependent on bin width but instead on a smoothing parameter (bandwidth). They are especially useful for comparing multiple distributions in a clean, smooth form.\nWe first compute a density estimate with density() and then plot it:\n\nd &lt;- density(diabetes$bmi)\nplot(d)\n\n\n\n\n\n\n\n\nSince the result of density() is an object with x (values) and y (estimated density) components, we can plot it manually for more control:\n\nd %$% plot(y = y, x = x, type = \"l\")\n\n\n\n\n\n\n\n\nYou can overlay density plots from different groups on the same chart (changing colors or line types) to compare shapes without cluttering the display with discrete bins.\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Univariate Visualizations",
+      "Density Plots"
+    ]
+  },
+  {
+    "objectID": "tutorials/bivariate/scatterplot.html",
+    "href": "tutorials/bivariate/scatterplot.html",
+    "title": "Scatterplots",
+    "section": "",
+    "text": "Scatterplots are one of the most fundamental tools for visualizing the relationship between two continuous variables (or variables that we wish to treat as continuous). Each point on the plot represents one observational unit’s values on the two plotted variables. This makes scatterplots particularly useful for identifying trends, clusters, and extreme values in the data.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe make a simple scatterplot with the plot() function. For example, the following code uses the diabetes dataset to visualize the bivariate association between Body Mass Index, bmi, and Total Cholesterol, tc.\n\nplot(y = diabetes$tc, x = diabetes$bmi)\n\n\n\n\n\n\n\n\nIn this example, every point represents a different patient’s value of BMI and their level of total cholesterol. The points form a cloud with a slight upward trend, suggesting that higher BMI values tend to be associated with higher cholesterol levels, although the variability is substantial.\nWe can improve the readability by adding axis labels, a title, and adjusting the axis limits. To do so we adjust the following parameters.\n\nylab, xlab: Define new axis labels\nmain: Add a plot title\nylim, xlim: Define the ranges of the y-axis and x-axis\n\n\nplot(\n  y = diabetes$tc,\n  x = diabetes$bmi,\n  ylab = \"Total Cholesterol\",\n  xlab = \"Body Mass Index\",\n  main = \"Relation between BMI and Cholesterol\",\n  ylim = c(0, 350),\n  xlim = c(0, 50)\n)\n\n\n\n\n\n\n\n\nWhen we apply plot() to a data frame containing only numeric columns, we generate a scatterplot matrix: a grid of scatterplots showing all the pairwise relationships.\n\nplot(diabetes[c(\"age\", \"bmi\", \"tc\", \"glu\", \"progress\")])\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPractice\n\n\n\nUsing the diabetes dataset, make a scatterplot of total cholesterol on the y-axis against age on the x-axis. Add meaningful axis labels and a title.\n\nThe diabetes dataset is already loaded in the working directory of this webr session.\n\n\n Interactive Editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nplot(\n  y = diabetes$tc,\n  x = diabetes$age,\n  ylab = \"Total Cholesterol\",\n  xlab = \"Age\",\n  main = \"Relation between Age and Cholesterol\",\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Bivariate Visualizations",
+      "Scatterplots"
+    ]
+  },
+  {
+    "objectID": "tutorials/bivariate/conditional.html",
+    "href": "tutorials/bivariate/conditional.html",
+    "title": "Boxplots",
+    "section": "",
+    "text": "A boxplot summarizes a numeric variable’s distribution through five key statistics: the minimum, first quartile, median, third quartile, and maximum. It also highlights potential outliers. Boxplots are particularly useful for comparing distributions across groups and are a compact alternative to histograms when you want to quickly compare medians, spreads, and detect asymmetry or extreme values without showing the full shape of the distribution.\nA basic boxplot of the progress variable looks like this:\n\nboxplot(diabetes$progress)\n\n\n\n\n\n\n\n\nIn this case, the plot shows a median roughly in the middle of the box, fairly balanced whiskers, and no evident extreme outliers, suggesting a relatively symmetric distribution. In boxplots, outliers are typically displayed as individual points beyond the whiskers, which extend to 1.5 times the interquartile range from the box.\nBoxplots in base R accept many of the same parameters as the plot() function, such as axis labels, main titles, and limits, allowing for consistent styling across different plot types. We can also rotate the boxplot horizontally and change the whisker range:\n\nboxplot(diabetes$progress,\n        horizontal = TRUE,\n        range = 3,\n        xlab = \"Disease Progression\")\n\n\n\n\n\n\n\n\nTo compare groups, we use a formula, where the variable of interest is plotted against a factor:\n\nboxplot(progress ~ sex, data = diabetes, col = \"violet\")\n\n\n\n\n\n\n\n\nThis produces side-by-side boxplots for each group in sex, allowing a quick visual comparison of tendencies and spread.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nPractice\n\n\n\nUse base R graphics and the titanic data to create conditional boxplots, where plots of age are conditioned on survived. What does this figure tell you about the ages of survivors (survived = 1) vs. non-survivors (survived = 0)?\n\n Interactive Editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAs we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset.\n\nboxplot(age ~ survived, data = titanic)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Bivariate Visualizations",
+      "Boxplots"
+    ]
+  },
+  {
+    "objectID": "quizzes/univariate/questions/default_arguments2.html",
+    "href": "quizzes/univariate/questions/default_arguments2.html",
+    "title": "Question",
+    "section": "",
+    "text": "Use the following help file excerpt to answer the question below.\n\n\n\n\n\n\n\n\ncor\nR Documentation\n\n\n\n\n\n\n\n\n\nvar(x, y = NULL, na.rm = FALSE, use)\n\ncov(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncor(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncov2cor(V)\n\n\n\n\n\n\n\n\nWhat is the default value for the use argument of the cor() function?\n\n\n\n\"everything\"\n\"Everything\n\"spearman\"\n\"pearson\"\n\"kendall\"\nc(\"pearson\", \"spearman\", \"kendall\")\nNULL\nmethod\ny\nx\nThe use argument does not have a defined default value."
+  },
+  {
+    "objectID": "quizzes/univariate/questions/default_arguments2.html#answerlist",
+    "href": "quizzes/univariate/questions/default_arguments2.html#answerlist",
+    "title": "Question",
+    "section": "",
+    "text": "\"everything\"\n\"Everything\n\"spearman\"\n\"pearson\"\n\"kendall\"\nc(\"pearson\", \"spearman\", \"kendall\")\nNULL\nmethod\ny\nx\nThe use argument does not have a defined default value."
+  },
+  {
+    "objectID": "quizzes/univariate/questions/default_arguments2.html#answerlist-1",
+    "href": "quizzes/univariate/questions/default_arguments2.html#answerlist-1",
+    "title": "Question",
+    "section": "Answerlist",
+    "text": "Answerlist\n\nCorrect\nWrong: The “E” should be lowercase\nWrong: This is one of the possible methods\nWrong: This is one of the possible methods\nWrong: This is one of the possible methods\nWrong: These are all of the possible methods\nWrong: This is the default value for y\nWrong: This is an argument name\nWrong: This is an argument name\nWrong: This is an argument name\nWrong: There is a default value defined for use."
+  },
+  {
+    "objectID": "quizzes/univariate/index.html",
+    "href": "quizzes/univariate/index.html",
+    "title": "Knowledge Quiz: Univariate Visualizations",
+    "section": "",
+    "text": "Note\n\n\n\n\nClick the check-mark button to check your answer.\nClick the question-mark button to see an explanation of the solution.\n\n\n\n\n\n\nWhich of the following expressions will return TRUE?\n\nFALSETRUE\"alice\" == \"bob\" | \"alice\" != \"alice\"!(6 &gt; 7)\"alice\" == \"bob\" & \"alice\" == \"alice\"TRUE & FALSE\n\n\n\n\nFALSE: Trivially\nTRUE: Trivially\nFALSE: “alice” is not equal to “bob”, and “alice” is equal to “alice”\nTRUE: 6 is not strictly greater than 7, and that result is negated\nFALSE: “alice” is not equal to “bob”\nFALSE: Trivially\n\n\n\n\n\nWhat is the value of \\(x\\) in the following equation?\n\\[\nx = \\frac{1 + 1}{5}\n\\]\nRound your answer to two decimal places.\n\n\n\nAfter rounding, we get 0.40.\n\n\n\n\nUse the following help file excerpt to answer the question below.\n\n\n\n\n\n\n\n\ncor\nR Documentation\n\n\n\n\n\nCorrelation, Variance and Covariance (Matrices)\n\nUsage\n\nvar(x, y = NULL, na.rm = FALSE, use)\n\ncov(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncor(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncov2cor(V)\n\n\n\n\n\n\n\n\nWhat is the default value for the use argument of the cor() function?\n\nNULLThe use argument does not have a defined default value.\"Everything\"everything\"x\n\n\n\nThe default value for the use argument is \"everything\".\n\nWrong: This is the default value for y\nWrong: There is a default value defined for use.\nWrong: The “E” should be lowercase\nCorrect\nWrong: This is an argument name\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/default_arguments2.html",
+    "href": "quizzes/bivariate/questions/default_arguments2.html",
+    "title": "Question",
+    "section": "",
+    "text": "Use the following help file excerpt to answer the question below.\n\n\n\n\n\n\n\n\ncor\nR Documentation\n\n\n\n\n\n\n\n\n\nvar(x, y = NULL, na.rm = FALSE, use)\n\ncov(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncor(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncov2cor(V)\n\n\n\n\n\n\n\n\nWhat is the default value for the use argument of the cor() function?\n\n\n\n\"everything\"\n\"Everything\n\"spearman\"\n\"pearson\"\n\"kendall\"\nc(\"pearson\", \"spearman\", \"kendall\")\nNULL\nmethod\ny\nx\nThe use argument does not have a defined default value."
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/default_arguments2.html#answerlist",
+    "href": "quizzes/bivariate/questions/default_arguments2.html#answerlist",
+    "title": "Question",
+    "section": "",
+    "text": "\"everything\"\n\"Everything\n\"spearman\"\n\"pearson\"\n\"kendall\"\nc(\"pearson\", \"spearman\", \"kendall\")\nNULL\nmethod\ny\nx\nThe use argument does not have a defined default value."
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/default_arguments2.html#answerlist-1",
+    "href": "quizzes/bivariate/questions/default_arguments2.html#answerlist-1",
+    "title": "Question",
+    "section": "Answerlist",
+    "text": "Answerlist\n\nCorrect\nWrong: The “E” should be lowercase\nWrong: This is one of the possible methods\nWrong: This is one of the possible methods\nWrong: This is one of the possible methods\nWrong: These are all of the possible methods\nWrong: This is the default value for y\nWrong: This is an argument name\nWrong: This is an argument name\nWrong: This is an argument name\nWrong: There is a default value defined for use."
+  },
+  {
+    "objectID": "quizzes/bivariate/index.html",
+    "href": "quizzes/bivariate/index.html",
+    "title": "Knowledge Quiz: Bivariate Visualization",
+    "section": "",
+    "text": "Note\n\n\n\n\nClick the check-mark button to check your answer.\nClick the question-mark button to see an explanation of the solution.\n\n\n\n\n\n\nWhich of the following expressions will return TRUE?\n\n!TRUE\"foo\" != \"bar\"FALSETRUE & FALSE\"foo\" == \"bar\"TRUE\n\n\n\n\nFALSE: Trivial negation\nTRUE: “foo” is not equal to “bar”\nFALSE: Trivially\nFALSE: Trivially\nFALSE: “foo” is not equal to “bar”\nTRUE: Trivially\n\n\n\n\n\nWhat is the value of \\(x\\) in the following equation?\n\\[\nx = \\frac{4 + 2}{1}\n\\]\nRound your answer to two decimal places.\n\n\n\nAfter rounding, we get 6.00.\n\n\n\n\nUse the following help file excerpt to answer the question below.\n\n\n\n\n\n\n\n\ncor\nR Documentation\n\n\n\n\n\nCorrelation, Variance and Covariance (Matrices)\n\nUsage\n\nvar(x, y = NULL, na.rm = FALSE, use)\n\ncov(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncor(x, y = NULL, use = \"everything\",\n    method = c(\"pearson\", \"kendall\", \"spearman\"))\n\ncov2cor(V)\n\n\n\n\n\n\n\n\nWhat is the default value for the use argument of the cor() function?\n\nymethod\"Everything\"spearman\"\"everything\"\n\n\n\nThe default value for the use argument is \"everything\".\n\nWrong: This is an argument name\nWrong: This is an argument name\nWrong: The “E” should be lowercase\nWrong: This is one of the possible methods\nCorrect\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/arithmetic2.html",
+    "href": "quizzes/bivariate/questions/arithmetic2.html",
+    "title": "Question",
+    "section": "",
+    "text": "Question\nWhat is the value of \\(x\\) in the following equation?\n\\[\nx = \\frac{1 + 3}{1}\n\\]\nRound your answer to two decimal places.\n\n\nSolution\nAfter rounding, we get 4.00.\n\n\nMeta-information\nexname: Arithmetic extype: num exsolution: 4.00 extol: 0.01\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/logical.html",
+    "href": "quizzes/bivariate/questions/logical.html",
+    "title": "Question",
+    "section": "",
+    "text": "Which of the following expressions will return TRUE?\n\n\n\n\"foo\" != \"bar\"\n(8 + 6) &lt; (8 * 6)\n(8 - 1) == 7 & 7 &gt;= (14 / 2)\n\"alice\" == \"bob\" | \"alice\" == \"alice\"\n!(6 &gt; 7)\nTRUE\nFALSE\n\"foo\" == \"bar\"\n(8 - 1) == 7 & 7 &gt; (14 / 2)\n\"alice\" == \"bob\" | \"alice\" != \"alice\"\n\"alice\" == \"bob\" & \"alice\" == \"alice\"\n!TRUE\nTRUE & FALSE"
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/logical.html#answerlist",
+    "href": "quizzes/bivariate/questions/logical.html#answerlist",
+    "title": "Question",
+    "section": "",
+    "text": "\"foo\" != \"bar\"\n(8 + 6) &lt; (8 * 6)\n(8 - 1) == 7 & 7 &gt;= (14 / 2)\n\"alice\" == \"bob\" | \"alice\" == \"alice\"\n!(6 &gt; 7)\nTRUE\nFALSE\n\"foo\" == \"bar\"\n(8 - 1) == 7 & 7 &gt; (14 / 2)\n\"alice\" == \"bob\" | \"alice\" != \"alice\"\n\"alice\" == \"bob\" & \"alice\" == \"alice\"\n!TRUE\nTRUE & FALSE"
+  },
+  {
+    "objectID": "quizzes/bivariate/questions/logical.html#answerlist-1",
+    "href": "quizzes/bivariate/questions/logical.html#answerlist-1",
+    "title": "Question",
+    "section": "Answerlist",
+    "text": "Answerlist\n\nTRUE: “foo” is not equal to “bar”\nTRUE: 14 is strictly less than 48\nTRUE: 7 is equal to 7, and 7 is greater than or equal to 7\nTRUE: “alice” is not equal to “bob”, but “alice is equal to”alice”\nTRUE: 6 is not strictly greater than 7, and that result is negated\nTRUE: Trivially\nFALSE: Trivially\nFALSE: “foo” is not equal to “bar”\nFALSE: 7 is equal to 7, but 7 is not strictly greater than 7\nFALSE: “alice” is not equal to “bob”, and “alice” is equal to “alice”\nFALSE: “alice” is not equal to “bob”\nFALSE: Trivial negation\nFALSE: Trivially"
+  },
+  {
+    "objectID": "quizzes/univariate/questions/arithmetic2.html",
+    "href": "quizzes/univariate/questions/arithmetic2.html",
+    "title": "Question",
+    "section": "",
+    "text": "Question\nWhat is the value of \\(x\\) in the following equation?\n\\[\nx = \\frac{4 + 2}{1}\n\\]\nRound your answer to two decimal places.\n\n\nSolution\nAfter rounding, we get 6.00.\n\n\nMeta-information\nexname: Arithmetic extype: num exsolution: 6.00 extol: 0.01\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "quizzes/univariate/questions/logical.html",
+    "href": "quizzes/univariate/questions/logical.html",
+    "title": "Question",
+    "section": "",
+    "text": "Which of the following expressions will return TRUE?\n\n\n\n\"foo\" != \"bar\"\n(8 + 6) &lt; (8 * 6)\n(8 - 1) == 7 & 7 &gt;= (14 / 2)\n\"alice\" == \"bob\" | \"alice\" == \"alice\"\n!(6 &gt; 7)\nTRUE\nFALSE\n\"foo\" == \"bar\"\n(8 - 1) == 7 & 7 &gt; (14 / 2)\n\"alice\" == \"bob\" | \"alice\" != \"alice\"\n\"alice\" == \"bob\" & \"alice\" == \"alice\"\n!TRUE\nTRUE & FALSE"
+  },
+  {
+    "objectID": "quizzes/univariate/questions/logical.html#answerlist",
+    "href": "quizzes/univariate/questions/logical.html#answerlist",
+    "title": "Question",
+    "section": "",
+    "text": "\"foo\" != \"bar\"\n(8 + 6) &lt; (8 * 6)\n(8 - 1) == 7 & 7 &gt;= (14 / 2)\n\"alice\" == \"bob\" | \"alice\" == \"alice\"\n!(6 &gt; 7)\nTRUE\nFALSE\n\"foo\" == \"bar\"\n(8 - 1) == 7 & 7 &gt; (14 / 2)\n\"alice\" == \"bob\" | \"alice\" != \"alice\"\n\"alice\" == \"bob\" & \"alice\" == \"alice\"\n!TRUE\nTRUE & FALSE"
+  },
+  {
+    "objectID": "quizzes/univariate/questions/logical.html#answerlist-1",
+    "href": "quizzes/univariate/questions/logical.html#answerlist-1",
+    "title": "Question",
+    "section": "Answerlist",
+    "text": "Answerlist\n\nTRUE: “foo” is not equal to “bar”\nTRUE: 14 is strictly less than 48\nTRUE: 7 is equal to 7, and 7 is greater than or equal to 7\nTRUE: “alice” is not equal to “bob”, but “alice is equal to”alice”\nTRUE: 6 is not strictly greater than 7, and that result is negated\nTRUE: Trivially\nFALSE: Trivially\nFALSE: “foo” is not equal to “bar”\nFALSE: 7 is equal to 7, but 7 is not strictly greater than 7\nFALSE: “alice” is not equal to “bob”, and “alice” is equal to “alice”\nFALSE: “alice” is not equal to “bob”\nFALSE: Trivial negation\nFALSE: Trivially"
+  },
+  {
+    "objectID": "tutorials/bivariate/index.html",
+    "href": "tutorials/bivariate/index.html",
+    "title": "Bivariate Visualizations",
+    "section": "",
+    "text": "In the second part of this module, we will cover visualizations that allow us to scrutinize the bivariate distribution of two variables.\nSuch bivariate visualizations allow us to inspect the nature of the association between two numeric variables, for example, or how the distribution of a numeric variable differs between groups. Hence, bivariate visualizations are very useful for exploratory data analysis and diagnosing issues in statistical models like linear regression.\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Bivariate Visualizations"
+    ]
+  },
+  {
+    "objectID": "tutorials/univariate/boxplot.html",
+    "href": "tutorials/univariate/boxplot.html",
+    "title": "Boxplots",
+    "section": "",
+    "text": "A boxplot summarizes a numeric variable’s distribution through five key statistics: the minimum, first quartile, median, third quartile, and maximum. It also highlights potential outliers. Boxplots are particularly useful for comparing distributions across groups and are a compact alternative to histograms when you want to quickly compare medians, spreads, and detect asymmetry or extreme values without showing the full shape of the distribution.\nA basic boxplot of the progress variable looks like this:\n\nboxplot(diabetes$progress)\n\n\n\n\n\n\n\n\nIn this case, the plot shows a median roughly in the middle of the box, fairly balanced whiskers, and no evident extreme outliers, suggesting a relatively symmetric distribution. In boxplots, outliers are typically displayed as individual points beyond the whiskers, which extend to 1.5 times the interquartile range from the box.\nBoxplots in base R accept many of the same parameters as the plot() function, such as axis labels, main titles, and limits, allowing for consistent styling across different plot types. We can also rotate the boxplot horizontally and change the whisker range:\n\nboxplot(diabetes$progress,\n        horizontal = TRUE,\n        range = 3,\n        xlab = \"Disease Progression\")\n\n\n\n\n\n\n\n\nTo compare groups, we use a formula, where the variable of interest is plotted against a factor:\n\nboxplot(progress ~ sex, data = diabetes, col = \"violet\")\n\n\n\n\n\n\n\n\nThis produces side-by-side boxplots for each group in sex, allowing a quick visual comparison of tendencies and spread.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nPractice\n\n\n\nUse base R graphics and the titanic data to create conditional boxplots, where plots of age are conditioned on survived. What does this figure tell you about the ages of survivors (survived = 1) vs. non-survivors (survived = 0)?\n\n Interactive Editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAs we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset.\n\nboxplot(age ~ survived, data = titanic)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Univariate Visualizations",
+      "Boxplots"
+    ]
+  },
+  {
+    "objectID": "tutorials/univariate/histogram.html",
+    "href": "tutorials/univariate/histogram.html",
+    "title": "Histograms",
+    "section": "",
+    "text": "Histograms are one of the most straightforward and useful ways to visualize the distribution of a numeric variable. A histogram shows the distribution of a single numeric variable by dividing its range into bins (intervals), counting how many observations fall into each bin, and visualizing these counts as bars in a plot. Histograms are meant to represent a variables probability distribution, so they’re useful for understanding the shape, spread, and skewness of numeric varaibles.\nThe hist() function in Base R creates histograms. For example, the following code visualizes the distribution of blood glucose levels in the diabetes dataset.\n\nhist(diabetes$glu)\n\n\n\n\n\n\n\n\nLike the plot() function, hist() accepts many parameters to customize the appearance, such as main for the title, xlab and ylab for axis labels, and xlim or ylim to set axis ranges. We can also control the number of bins with the breaks argument:\n\nhist(diabetes$glu, main = \"Broad bins\", breaks = 5)   # Very broad bins\n\n\n\n\n\n\n\nhist(diabetes$glu, main = \"Small bins\", breaks = 50)  # Many small bins\n\n\n\n\n\n\n\n\nStyling options let us adjust colors and axis interpretation:\n\nhist(diabetes$glu,\n     col = \"pink\",\n     border = \"blue\",\n     probability = TRUE)  # y-axis shows probability density\n\n\n\n\n\n\n\n\nSetting probability = TRUE makes the histogram’s total area sum to 1, which is useful when comparing with density plots.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nPractice\n\n\n\nMake an histogram showing the age distribution in the diabetes dataset, with small bins, green columns and an appropiate title.\n\n Interactive Editor Solution\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nhist(diabetes$age,\n     col = \"green\",\n     breaks = 50,\n     main = \"Age distribution\")  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Univariate Visualizations",
+      "Histograms"
+    ]
+  },
+  {
+    "objectID": "index.html#base-r-graphics",
+    "href": "index.html#base-r-graphics",
+    "title": "Basic Visualization",
+    "section": "Base R Graphics",
+    "text": "Base R Graphics\nR includes a versatile set of built-in plotting tools that allow us to create a wide range of visualizations without the need for additional packages. With these Base R plotting functions you can produce anything from simple scatterplots and histograms to more elaborate multi-panel displays.\nPlots in Base R are built up step-by-step. You begin with a main plotting function such as plot(), hist(), or boxplot(), and then refine the result by adding or adjusting titles, axis labels, colors, and other visual elements. This way of working makes Base R graphics particularly useful for exploratory analysis, where it is often important to obtain quick visual feedback.\nAlthough more advanced plotting packages like ggplot2 offer a more structured, layered approach, Base R graphics remain useful for rapidly inspecting datasets and creating lightweight graphics without extra dependencies.",
+    "crumbs": [
+      "Open-Stat-Prog",
+      "Overview"
+    ]
   }
 ]
