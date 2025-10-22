@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Boxplots – OSP Basic Visualization</title>
+<title>Conditional Plots – OSP Basic Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"context":"setup","autorun":"true","read-only":"false","comment":"","dpi":72,"editor-max-height":"","warning":"true","classes":"","fig-cap":"","results":"markup","fig-height":5,"label":"unnamed-chunk-1","message":"true","fig-width":7,"output":"true","editor-font-scale":"1","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":""},"id":1,"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")\nlibrary(magrittr)"},{"options":{"context":"interactive","autorun":"false","read-only":"false","comment":"","dpi":72,"editor-max-height":"","warning":"true","classes":"","fig-cap":"","results":"markup","fig-height":5,"label":"unnamed-chunk-2","message":"true","fig-width":7,"output":"true","editor-font-scale":"1","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":""},"id":2,"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","comment":"","classes":"","fig-cap":"","editor-max-height":"","fig-width":7,"read-only":"false","label":"unnamed-chunk-1","autorun":"true","editor-quick-suggestions":"false","message":"true","context":"setup","editor-font-scale":"1","dpi":72,"warning":"true","out-width":"700px","output":"true","editor-word-wrap":"true","fig-height":5,"out-height":""},"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")\nlibrary(magrittr)","id":1},{"options":{"results":"markup","comment":"","classes":"","fig-cap":"","editor-max-height":"","fig-width":7,"read-only":"false","label":"unnamed-chunk-2","autorun":"false","editor-quick-suggestions":"false","message":"true","context":"interactive","editor-font-scale":"1","dpi":72,"warning":"true","out-width":"700px","output":"true","editor-word-wrap":"true","fig-height":5,"out-height":""},"code":"","id":2}];
 
 </script>
 <script type="module">
@@ -1658,19 +1658,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-reading-advanced.callout {
-  border-left-color: red;
-}
-div.callout-reading-advanced.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-reading-advanced .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-reading-advanced.callout-style-default .callout-icon::before, div.callout-reading-advanced.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
 div.callout-reading.callout {
   border-left-color: purple;
 }
@@ -1682,6 +1669,19 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f518' !important;
+  background-image: none;
+}
+div.callout-practice.callout {
+  border-left-color: green;
+}
+div.callout-practice.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
+}
+div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f085' !important;
   background-image: none;
 }
 div.callout-resource.callout {
@@ -1697,17 +1697,17 @@ div.callout-resource.callout-style-default .callout-icon::before, div.callout-re
   content: '\f0c1' !important;
   background-image: none;
 }
-div.callout-practice.callout {
-  border-left-color: green;
+div.callout-reading-advanced.callout {
+  border-left-color: red;
 }
-div.callout-practice.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
+div.callout-reading-advanced.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
 }
-div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
+div.callout-reading-advanced .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-reading-advanced.callout-style-default .callout-icon::before, div.callout-reading-advanced.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f085' !important;
+  content: '\f518' !important;
   background-image: none;
 }
 </style>
@@ -1762,7 +1762,7 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Boxplots</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Conditional Plots</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1797,14 +1797,14 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/univariate/density.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Density Plots</span></a>
+  <a href="../../tutorials/univariate/boxplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boxplots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/univariate/boxplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Boxplots</span></a>
+  <a href="../../tutorials/univariate/barplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bar Plots</span></a>
   </div>
 </li>
       </ul>
@@ -1827,7 +1827,7 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tutorials/bivariate/conditional.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Boxplots</span></a>
+ <span class="menu-text">Conditional Plots</span></a>
   </div>
 </li>
       </ul>
@@ -1843,8 +1843,14 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link active" data-scroll-target="#boxplots">Boxplots</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -2133,9 +2139,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Boxplots</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../tutorials/bivariate/index.html">Bivariate Visualizations</a></li><li class="breadcrumb-item"><a href="../../tutorials/bivariate/conditional.html">Conditional Plots</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Boxplots</h1>
+<h1 class="title">Conditional Plots</h1>
 </div>
 
 
@@ -2152,10 +2158,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>A boxplot summarizes a numeric variable’s distribution through five key statistics: the minimum, first quartile, median, third quartile, and maximum. It also highlights potential outliers. Boxplots are particularly useful for comparing distributions across groups and are a compact alternative to histograms when you want to quickly compare medians, spreads, and detect asymmetry or extreme values without showing the full shape of the distribution.</p>
-<p>A basic boxplot of the <code>progress</code> variable looks like this:</p>
+<p>We can convert most univariate visualizations that we create with Base R graphics into conditional plots by specifying a grouping factor. We then get a single figure with group-specific versions of the univariate visualization.</p>
+<section id="boxplots" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots">Boxplots</h3>
+<p>We can use conditional boxplots to compare the distribution of a variable accross groups. To create this type of figure, we employ the so-called <em>formula interface</em> when calling the <code>boxplot()</code> function. In the following code, we use the <code>diabetes</code> dataset to create sex-specific boxplots of disease progression.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>progress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(progress <span class="sc">~</span> sex, <span class="at">data =</span> diabetes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2164,33 +2172,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>In this case, the plot shows a median roughly in the middle of the box, fairly balanced whiskers, and no evident extreme outliers, suggesting a relatively symmetric distribution. In boxplots, outliers are typically displayed as individual points beyond the whiskers, which extend to 1.5 times the interquartile range from the box.</p>
-<p>Boxplots in base R accept many of the same parameters as the plot() function, such as axis labels, main titles, and limits, allowing for consistent styling across different plot types. We can also rotate the boxplot horizontally and change the whisker range:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>progress,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">3</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Disease Progression"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="conditional_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>To compare groups, we use a formula, where the variable of interest is plotted against a factor:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(progress <span class="sc">~</span> sex, <span class="at">data =</span> diabetes, <span class="at">col =</span> <span class="st">"violet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="conditional_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This produces side-by-side boxplots for each group in <code>sex</code>, allowing a quick visual comparison of tendencies and spread.</p>
+<p>When we use the formula interface, we specify the plotted variable on the left hand side of the formula and we put the grouping factor on the righthand side of the formula. We also have to specify a data frame where <code>boxplot()</code> can find the variables we’re referencing in the formula.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-practice callout-titled">
@@ -2214,11 +2196,11 @@ Practice
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(age <span class="sc">~</span> survived, <span class="at">data =</span> titanic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(age <span class="sc">~</span> survived, <span class="at">data =</span> titanic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="conditional_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="conditional_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2230,6 +2212,7 @@ Practice
 </div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

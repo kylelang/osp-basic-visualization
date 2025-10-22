@@ -9,8 +9,8 @@ diabetes <- readRDS(here::here("data", "diabetes.rds"))
 Histograms are one of the most straightforward and useful ways to visualize the distribution of a numeric variable. A
 histogram shows the distribution of a single numeric variable by dividing its range into bins (intervals), counting how
 many observations fall into each bin, and visualizing these counts as bars in a plot. Histograms are meant to represent
-a variables probability distribution, so they're useful for understanding the shape, spread, and skewness of numeric
-varaibles.
+a variable's probability distribution, so they're useful for understanding the shape, spread, and skewness of numeric
+variables
 
 The `hist()` function in Base R creates histograms. For example, the following code visualizes the distribution of blood
 glucose levels in the diabetes dataset.
@@ -19,42 +19,86 @@ glucose levels in the diabetes dataset.
 hist(diabetes$glu)
 ```
 
-Like the plot() function, `hist()` accepts many parameters to customize the appearance, such as `main` for the title,
-`xlab` and `ylab` for axis labels, and `xlim` or `ylim` to set axis ranges. We can also control the number of bins with
-the `breaks` argument:
+### Adjusting the Basic Plot
+
+By default, `hist()` will try to best represent the distribution by applying the [Sturges Formula][sturges] to define
+the bin width We can alter this behavior in several ways through the `breaks` argument.
+
+- Specify a different built-in algorithm
+- Provide a vector of cut points giving the bin margins
+- Request a fixed number of bins
+- Define our own function to create the bins
 
 ```{r}
-hist(diabetes$glu, main = "Broad bins", breaks = 5)   # Very broad bins
-hist(diabetes$glu, main = "Small bins", breaks = 50)  # Many small bins
+hist(diabetes$glu, main = "Define bins via Scott's formula", breaks = "scott")
+hist(diabetes$glu, main = "Define bins with a vector", breaks = seq(50, 130, 10))
+hist(diabetes$glu, main = "Ask for 5 bins", breaks = 5)
+hist(diabetes$glu, main = "Ask for 50 bins", breaks = 50)
 ```
 
-Styling options let us adjust colors and axis interpretation:
+The `hist()` function accepts many parameters to customize the plot's appearance. For example, in the next code chunk,
+we adjust the following parameters.
+
+- `main`: Add a better title
+- `col`: Change the fill color of the bars
+- `border`: Change the border color of the bars
+- `probability`: Switch the y-axis to a probability scale
 
 ```{r}
 hist(diabetes$glu,
+     main = "Colorful Histogram",
      col = "pink",
      border = "blue",
-     probability = TRUE)  # y-axis shows probability density
+     probability = TRUE)
 ```
 
-Setting `probability = TRUE` makes the histogram’s total area sum to 1, which is useful when comparing with density
-plots.
+Setting `probability = TRUE` converts the y-axis to a probability scale and makes the histogram’s total area sum to 1.
+Hence the bar heights represent the proportion of the sample that falls into each bin, rather than a straight count of
+the observations in each bin.
+
+### Graphical Parameters
+
+::: {.column-margin}
+
+:::: resource
+
+The tutorial linked below gives a nice overview of the various graphical parameters you can use to adjust the appearance
+of Base R visualizations.
+
+[STHDA Tutorial: R Graphical Parameters](https://www.sthda.com/english/wiki/graphical-parameters)
+
+::::
+
+:::
+
+The adjustments you see above are only a tiny drop in a vast bucket of possibilities. We can tweak nearly every aspect
+of our visualization's appearance by adjusting the values of the built-in *graphical parameters*. There are many such
+parameters. To see a full list of the graphical parameters, read the documentation for the `par()` function.
+
+```{r, eval = FALSE}
+?par
+```
 
 ```{webr-r}
 #| autorun: true
 #| context: setup
-#| 
-download.file("https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds", "diabetes.rds")
+
+download.file("https://openstatprog.com/raw-data/diabetes.rds", "diabetes.rds")
 diabetes <- readRDS("diabetes.rds")
-library(magrittr)
 ```
 
 ::: practice
 
 ## Practice
 
-Make an histogram showing the age distribution in the `diabetes` dataset, with small bins, green columns and an
-appropiate title.
+Make an histogram showing the age distribution in the `diabetes` dataset.
+
+- Adjust the bin width to create a fine-grained visualization with many, small bins
+- Set the fill-color of the columns to green
+- Add a better label for the x-axis
+- Add a better plot title
+
+*NOTE:* The `diabetes` dataset is already loaded in the working directory of this *webr* session.
 
 :::: {.panel-tabset}
 ## {{< var tab_title.editor >}}
@@ -65,14 +109,37 @@ appropiate title.
 
 ## {{< var tab_title.solution >}}
 
-
 ```{r}
 hist(diabetes$age,
      col = "green",
      breaks = 50,
-     main = "Age distribution")  
-
+     xlab = "Age",
+     main = "Age Distribution")
 ```
 ::::
 
 :::
+
+### Kernel Density Plots
+
+A kernel density plot provides a smoothed estimate of a continuous variable’s distribution. You can think about a kernel
+density plot as a smoothed version of a histogram. Essentially, we create a density plot by drawing a line that connects
+the tops of the columns from a special type of fine-grained histogram into a single continuous curve.
+
+In Base R, we don't have a single function to create a kernel density plot. We first compute a density estimate with the
+`density()` function, and then we plot the estimated density object. For example, the following code visualizes the
+distribution of BMI with a kernel density plot.
+
+```{r}
+d <- density(diabetes$bmi)
+plot(d)
+```
+
+As with any other Base R visualization, we can tweak the appearance of a kernel density plot through graphical
+parameters.
+
+```{r}
+plot(d, main = "Estimated Density of BMI", col = "blue")
+```
+
+[sturges]: https://doi.org/10.1080/01621459.1926.10502161

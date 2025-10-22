@@ -33,8 +33,9 @@ website:
       - section: tutorials/univariate/index.qmd
         contents:
         - href: tutorials/univariate/histogram.qmd
-        - href: tutorials/univariate/density.qmd
+        # - href: tutorials/univariate/density.qmd
         - href: tutorials/univariate/boxplot.qmd
+        - href: tutorials/univariate/barplot.qmd
         # - href: quizzes/univariate/index.qmd
         #   text: "Knowledge Quiz"
       - section: tutorials/bivariate/index.qmd

@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../tutorials/bivariate/index.html" rel="next">
-<link href="../../tutorials/univariate/density.html" rel="prev">
+<link href="../../tutorials/univariate/barplot.html" rel="next">
+<link href="../../tutorials/univariate/histogram.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-height":5,"out-height":"","editor-max-height":"","read-only":"false","message":"true","editor-word-wrap":"true","context":"setup","dpi":72,"editor-font-scale":"1","results":"markup","warning":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-1","fig-width":7,"out-width":"700px","output":"true","comment":"","autorun":"true","classes":""},"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")\nlibrary(magrittr)","id":1},{"options":{"fig-height":5,"out-height":"","editor-max-height":"","read-only":"false","message":"true","editor-word-wrap":"true","context":"interactive","dpi":72,"editor-font-scale":"1","results":"markup","warning":"true","editor-quick-suggestions":"false","fig-cap":"","label":"unnamed-chunk-2","fig-width":7,"out-width":"700px","output":"true","comment":"","autorun":"false","classes":""},"code":"","id":2}];
+globalThis.qwebrCellDetails = [{"options":{"out-height":"","fig-width":7,"dpi":72,"message":"true","fig-cap":"","warning":"true","context":"setup","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-1","fig-height":5,"classes":"","read-only":"false","output":"true","results":"markup","autorun":"true","editor-max-height":"","out-width":"700px","comment":"","editor-quick-suggestions":"false"},"code":"download.file(\"https://openstatprog.com/raw-data/titanic.rds\", \"titanic.rds\")\ntitanic <- readRDS(\"titanic.rds\")","id":1},{"options":{"out-height":"","fig-width":7,"dpi":72,"message":"true","fig-cap":"","warning":"true","context":"interactive","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-2","fig-height":5,"classes":"","read-only":"false","output":"true","results":"markup","autorun":"false","editor-max-height":"","out-width":"700px","comment":"","editor-quick-suggestions":"false"},"code":"","id":2}];
 
 </script>
 <script type="module">
@@ -1658,17 +1658,17 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-resource.callout {
-  border-left-color: orange;
+div.callout-practice.callout {
+  border-left-color: green;
 }
-div.callout-resource.callout-style-default > .callout-header {
-  background-color: rgb(from orange r g b / 13%);
+div.callout-practice.callout-style-default > .callout-header {
+  background-color: rgb(from green r g b / 13%);
 }
-div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
+div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f0c1' !important;
+  content: '\f085' !important;
   background-image: none;
 }
 div.callout-reading-advanced.callout {
@@ -1697,21 +1697,50 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-practice.callout {
-  border-left-color: green;
+div.callout-resource.callout {
+  border-left-color: orange;
 }
-div.callout-practice.callout-style-default > .callout-header {
-  background-color: rgb(from green r g b / 13%);
+div.callout-resource.callout-style-default > .callout-header {
+  background-color: rgb(from orange r g b / 13%);
 }
-div.callout-practice .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-practice.callout-style-default .callout-icon::before, div.callout-practice.callout-titled .callout-icon::before {
+div.callout-resource .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-resource.callout-style-default .callout-icon::before, div.callout-resource.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
-  content: '\f085' !important;
+  content: '\f0c1' !important;
   background-image: none;
 }
 </style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../html/webex.css">
 </head>
@@ -1797,14 +1826,14 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/univariate/density.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Density Plots</span></a>
+  <a href="../../tutorials/univariate/boxplot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Boxplots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/univariate/boxplot.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Boxplots</span></a>
+  <a href="../../tutorials/univariate/barplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histograms</span></a>
   </div>
 </li>
       </ul>
@@ -1843,8 +1872,15 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#defining-the-whiskers" id="toc-defining-the-whiskers" class="nav-link active" data-scroll-target="#defining-the-whiskers">Defining the Whiskers</a></li>
+  <li><a href="#boxplots-for-outlier-analysis" id="toc-boxplots-for-outlier-analysis" class="nav-link" data-scroll-target="#boxplots-for-outlier-analysis">Boxplots for Outlier Analysis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -2152,10 +2188,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>A boxplot summarizes a numeric variable’s distribution through five key statistics: the minimum, first quartile, median, third quartile, and maximum. It also highlights potential outliers. Boxplots are particularly useful for comparing distributions across groups and are a compact alternative to histograms when you want to quickly compare medians, spreads, and detect asymmetry or extreme values without showing the full shape of the distribution.</p>
-<p>A basic boxplot of the <code>progress</code> variable looks like this:</p>
+<p>The boxplot (AKA, box-and-whiskers plot) is one of the most enduring contributions of Tukey’s seminal book <a href="https://www.google.com/books/edition/Exploratory_Data_Analysis/UT9dAAAAIAAJ?hl=en"><em>Exploratory Data Analysis</em></a>. A boxplot is a visualization of a numeric variable’s so-call “five-number-summary” that quantifies a variable’s distribution through five order statistics: minimum, first quartile, median, third quartile, maximum. Boxplots are particularly useful for evaluating the spread and symmetry of a distribution and checking for extreme values.</p>
+<p>We use the <code>boxplot()</code> function to create a boxplot with Base R graphics. For example, the following code creates a basic boxplot of the <code>progress</code> variable from the <code>diabetes</code> dataset.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>progress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2164,13 +2200,21 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>In this case, the plot shows a median roughly in the middle of the box, fairly balanced whiskers, and no evident extreme outliers, suggesting a relatively symmetric distribution. In boxplots, outliers are typically displayed as individual points beyond the whiskers, which extend to 1.5 times the interquartile range from the box.</p>
-<p>Boxplots in base R accept many of the same parameters as the plot() function, such as axis labels, main titles, and limits, allowing for consistent styling across different plot types. We can also rotate the boxplot horizontally and change the whisker range:</p>
+<p>In this case, the plot indicates some positive skew: the median falls closer to the first quartile than the third quartile, and the upper whisker is longer than the lower whisker.</p>
+<section id="defining-the-whiskers" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-whiskers">Defining the Whiskers</h3>
+<p>The “box” part of a box-and-whiskers plot is always defined by first and third quartiles, <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span>, with the median drawn somewhere inside the box. So, this box tells us something about the symmetry and spread of the middle 50% of the distribution.</p>
+<p>The “whiskers”, on the other hand, tell us about the tails of the distribution. We can defined the whiskers in several different ways to target specific information. In the default boxplot, the whiskers are defined in terms of the <em>inner-quartile range</em> <span class="math inline">\(\textrm{IQR} = Q_3 - Q_1\)</span>.</p>
+<ul>
+<li>Lower whisker: <span class="math inline">\(Q_1 - 1.5 \times \textrm{IQR}\)</span></li>
+<li>Upper whisker: <span class="math inline">\(Q_3 + 1.5 \times \textrm{IQR}\)</span></li>
+</ul>
+<p>We can change the weight applied to the IQR via the <code>range</code> argument. The following code defines the whisker margin as <span class="math inline">\(2 \times \textrm{IQR}\)</span>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>progress,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">3</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Disease Progression"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>bmi,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">2</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Margin = 3 * IQR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2179,9 +2223,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>To compare groups, we use a formula, where the variable of interest is plotted against a factor:</p>
+<p>To use the minimum and maximum values to define the whiskers, we set <code>range = 0</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(progress <span class="sc">~</span> sex, <span class="at">data =</span> diabetes, <span class="at">col =</span> <span class="st">"violet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>bmi,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">0</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Min/Max Whiskers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2190,7 +2237,39 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>This produces side-by-side boxplots for each group in <code>sex</code>, allowing a quick visual comparison of tendencies and spread.</p>
+</section>
+<section id="boxplots-for-outlier-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots-for-outlier-analysis">Boxplots for Outlier Analysis</h3>
+<p>Any observations that fall outside the interval defined by the whiskers are plotted as individual points. This behavior makes boxplots a handy way to check for extreme values (i.e., outliers). If we set the whiskers so they define the range of plausible values, any points that fall outside the whiskers are possible outliers.</p>
+<p>A common convention is to use a margin of <span class="math inline">\(1.5 \times \textrm{IQR}\)</span> to flag “possible” outliers and a margin of <span class="math inline">\(3
+\times \textrm{IQR}\)</span> to flag “probable” outliers.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>bmi,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="fl">1.5</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Possible Outliers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="boxplot_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(diabetes<span class="sc">$</span>bmi,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="dv">3</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Body Mass Index"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Probable Outliers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="boxplot_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this case, we see that 3 observations are flagged as possible outliers, and 0 observations are flagged as probable outliers.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-practice callout-titled">
@@ -2203,7 +2282,13 @@ Practice
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use base R graphics and the <code>titanic</code> data to create conditional boxplots, where plots of <code>age</code> are conditioned on <code>survived</code>. What does this figure tell you about the ages of survivors (<code>survived</code> = 1) vs.&nbsp;non-survivors (<code>survived</code> = 0)?</p>
+<p>Use the <code>titanic</code> data to create a boxplot of <code>age</code>.</p>
+<ul>
+<li>Use a margin of <span class="math inline">\(2 \times \textrm{IQR}\)</span> to define the whiskers.</li>
+<li>Add a better plot title</li>
+<li>Add a better label for the x-axis</li>
+</ul>
+<p><em>NOTE:</em> The <code>titanic</code> dataset is already loaded in the working directory of this <em>webr</em> session.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
 <div class="tab-content">
@@ -2212,13 +2297,17 @@ Practice
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(age <span class="sc">~</span> survived, <span class="at">data =</span> titanic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  titanic<span class="sc">$</span>age,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">range =</span> <span class="dv">2</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Age"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Ages of Titanic Passengers"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="boxplot_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="boxplot_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2230,6 +2319,7 @@ Practice
 </div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -2661,13 +2751,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../tutorials/univariate/density.html" class="pagination-link" aria-label="Density Plots">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Density Plots</span>
+      <a href="../../tutorials/univariate/histogram.html" class="pagination-link" aria-label="Histograms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Histograms</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../tutorials/bivariate/index.html" class="pagination-link" aria-label="Bivariate Visualizations">
-        <span class="nav-page-text">Bivariate Visualizations</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../tutorials/univariate/barplot.html" class="pagination-link" aria-label="Histograms">
+        <span class="nav-page-text">Histograms</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

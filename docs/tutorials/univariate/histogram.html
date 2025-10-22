@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../tutorials/univariate/density.html" rel="next">
+<link href="../../tutorials/univariate/boxplot.html" rel="next">
 <link href="../../tutorials/univariate/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -404,7 +404,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"editor-max-height":"","output":"true","editor-font-scale":"1","label":"unnamed-chunk-1","out-height":"","editor-word-wrap":"true","comment":"","fig-width":7,"message":"true","autorun":"true","read-only":"false","results":"markup","fig-height":5,"classes":"","dpi":72,"context":"setup","fig-cap":"","editor-quick-suggestions":"false","warning":"true","out-width":"700px"},"code":"#| \ndownload.file(\"https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")\nlibrary(magrittr)","id":1},{"options":{"editor-max-height":"","output":"true","editor-font-scale":"1","label":"unnamed-chunk-2","out-height":"","editor-word-wrap":"true","comment":"","fig-width":7,"message":"true","autorun":"false","read-only":"false","results":"markup","fig-height":5,"classes":"","dpi":72,"context":"interactive","fig-cap":"","editor-quick-suggestions":"false","warning":"true","out-width":"700px"},"code":"","id":2}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"download.file(\"https://openstatprog.com/raw-data/diabetes.rds\", \"diabetes.rds\")\ndiabetes <- readRDS(\"diabetes.rds\")","options":{"warning":"true","editor-max-height":"","out-height":"","dpi":72,"context":"setup","results":"markup","label":"unnamed-chunk-1","comment":"","out-width":"700px","fig-cap":"","editor-font-scale":"1","fig-height":5,"autorun":"true","message":"true","fig-width":7,"read-only":"false","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true"}},{"id":2,"code":"","options":{"warning":"true","editor-max-height":"","out-height":"","dpi":72,"context":"interactive","results":"markup","label":"unnamed-chunk-2","comment":"","out-width":"700px","fig-cap":"","editor-font-scale":"1","fig-height":5,"autorun":"false","message":"true","fig-width":7,"read-only":"false","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true"}}];
 
 </script>
 <script type="module">
@@ -1658,14 +1658,14 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 <style>
-div.callout-reading.callout {
-  border-left-color: purple;
+div.callout-reading-advanced.callout {
+  border-left-color: red;
 }
-div.callout-reading.callout-style-default > .callout-header {
-  background-color: rgb(from purple r g b / 13%);
+div.callout-reading-advanced.callout-style-default > .callout-header {
+  background-color: rgb(from red r g b / 13%);
 }
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+div.callout-reading-advanced .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-reading-advanced.callout-style-default .callout-icon::before, div.callout-reading-advanced.callout-titled .callout-icon::before {
   font-family: 'Font Awesome 6 Free', FontAwesome;
   font-style: normal;
   content: '\f518' !important;
@@ -1684,19 +1684,6 @@ div.callout-practice.callout-style-default .callout-icon::before, div.callout-pr
   content: '\f085' !important;
   background-image: none;
 }
-div.callout-reading-advanced.callout {
-  border-left-color: red;
-}
-div.callout-reading-advanced.callout-style-default > .callout-header {
-  background-color: rgb(from red r g b / 13%);
-}
-div.callout-reading-advanced .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
-div.callout-reading-advanced.callout-style-default .callout-icon::before, div.callout-reading-advanced.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 6 Free', FontAwesome;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
 div.callout-resource.callout {
   border-left-color: orange;
 }
@@ -1710,13 +1697,26 @@ div.callout-resource.callout-style-default .callout-icon::before, div.callout-re
   content: '\f0c1' !important;
   background-image: none;
 }
+div.callout-reading.callout {
+  border-left-color: purple;
+}
+div.callout-reading.callout-style-default > .callout-header {
+  background-color: rgb(from purple r g b / 13%);
+}
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewbox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 6 Free', FontAwesome;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
+}
 </style>
 
 
 <link rel="stylesheet" href="../../html/webex.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -1797,14 +1797,14 @@ div.callout-resource.callout-style-default .callout-icon::before, div.callout-re
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/univariate/density.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Density Plots</span></a>
+  <a href="../../tutorials/univariate/boxplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boxplots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../tutorials/univariate/boxplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Boxplots</span></a>
+  <a href="../../tutorials/univariate/barplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histograms</span></a>
   </div>
 </li>
       </ul>
@@ -1843,11 +1843,19 @@ div.callout-resource.callout-style-default .callout-icon::before, div.callout-re
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#adjusting-the-basic-plot" id="toc-adjusting-the-basic-plot" class="nav-link active" data-scroll-target="#adjusting-the-basic-plot">Adjusting the Basic Plot</a></li>
+  <li><a href="#graphical-parameters" id="toc-graphical-parameters" class="nav-link" data-scroll-target="#graphical-parameters">Graphical Parameters</a></li>
+  <li><a href="#kernel-density-plots" id="toc-kernel-density-plots" class="nav-link" data-scroll-target="#kernel-density-plots">Kernel Density Plots</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 <script type="module" id="qwebr-monaco-editor-init">
 
@@ -2152,7 +2160,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>Histograms are one of the most straightforward and useful ways to visualize the distribution of a numeric variable. A histogram shows the distribution of a single numeric variable by dividing its range into bins (intervals), counting how many observations fall into each bin, and visualizing these counts as bars in a plot. Histograms are meant to represent a variables probability distribution, so they’re useful for understanding the shape, spread, and skewness of numeric varaibles.</p>
+<p>Histograms are one of the most straightforward and useful ways to visualize the distribution of a numeric variable. A histogram shows the distribution of a single numeric variable by dividing its range into bins (intervals), counting how many observations fall into each bin, and visualizing these counts as bars in a plot. Histograms are meant to represent a variable’s probability distribution, so they’re useful for understanding the shape, spread, and skewness of numeric variables</p>
 <p>The <code>hist()</code> function in Base R creates histograms. For example, the following code visualizes the distribution of blood glucose levels in the diabetes dataset.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2164,9 +2172,17 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>Like the plot() function, <code>hist()</code> accepts many parameters to customize the appearance, such as <code>main</code> for the title, <code>xlab</code> and <code>ylab</code> for axis labels, and <code>xlim</code> or <code>ylim</code> to set axis ranges. We can also control the number of bins with the <code>breaks</code> argument:</p>
+<section id="adjusting-the-basic-plot" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-the-basic-plot">Adjusting the Basic Plot</h3>
+<p>By default, <code>hist()</code> will try to best represent the distribution by applying the <a href="https://doi.org/10.1080/01621459.1926.10502161">Sturges Formula</a> to define the bin width We can alter this behavior in several ways through the <code>breaks</code> argument.</p>
+<ul>
+<li>Specify a different built-in algorithm</li>
+<li>Provide a vector of cut points giving the bin margins</li>
+<li>Request a fixed number of bins</li>
+<li>Define our own function to create the bins</li>
+</ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">main =</span> <span class="st">"Broad bins"</span>, <span class="at">breaks =</span> <span class="dv">5</span>)   <span class="co"># Very broad bins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">main =</span> <span class="st">"Define bins via Scott's formula"</span>, <span class="at">breaks =</span> <span class="st">"scott"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2174,7 +2190,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">main =</span> <span class="st">"Small bins"</span>, <span class="at">breaks =</span> <span class="dv">50</span>)  <span class="co"># Many small bins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">main =</span> <span class="st">"Define bins with a vector"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">130</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2182,13 +2198,36 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">main =</span> <span class="st">"Ask for 5 bins"</span>, <span class="at">breaks =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="histogram_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
 </div>
-<p>Styling options let us adjust colors and axis interpretation:</p>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu, <span class="at">main =</span> <span class="st">"Ask for 50 bins"</span>, <span class="at">breaks =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="histogram_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>hist()</code> function accepts many parameters to customize the plot’s appearance. For example, in the next code chunk, we adjust the following parameters.</p>
+<ul>
+<li><code>main</code>: Add a better title</li>
+<li><code>col</code>: Change the fill color of the bars</li>
+<li><code>border</code>: Change the border color of the bars</li>
+<li><code>probability</code>: Switch the y-axis to a probability scale</li>
+</ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"pink"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">"blue"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">probability =</span> <span class="cn">TRUE</span>)  <span class="co"># y-axis shows probability density</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>glu,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Colorful Histogram"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"pink"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">"blue"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2197,7 +2236,30 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 </div>
 </div>
-<p>Setting <code>probability = TRUE</code> makes the histogram’s total area sum to 1, which is useful when comparing with density plots.</p>
+<p>Setting <code>probability = TRUE</code> converts the y-axis to a probability scale and makes the histogram’s total area sum to 1. Hence the bar heights represent the proportion of the sample that falls into each bin, rather than a straight count of the observations in each bin.</p>
+</section>
+<section id="graphical-parameters" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="graphical-parameters">Graphical Parameters</h3>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-resource callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+External Resources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The tutorial linked below gives a nice overview of the various graphical parameters you can use to adjust the appearance of Base R visualizations.</p>
+<p><a href="https://www.sthda.com/english/wiki/graphical-parameters">STHDA Tutorial: R Graphical Parameters</a></p>
+</div>
+</div>
+</div></div><p>The adjustments you see above are only a tiny drop in a vast bucket of possibilities. We can tweak nearly every aspect of our visualization’s appearance by adjusting the values of the built-in <em>graphical parameters</em>. There are many such parameters. To see a full list of the graphical parameters, read the documentation for the <code>par()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>?par</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-practice callout-titled">
@@ -2210,7 +2272,14 @@ Practice
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Make an histogram showing the age distribution in the <code>diabetes</code> dataset, with small bins, green columns and an appropiate title.</p>
+<p>Make an histogram showing the age distribution in the <code>diabetes</code> dataset.</p>
+<ul>
+<li>Adjust the bin width to create a fine-grained visualization with many, small bins</li>
+<li>Set the fill-color of the columns to green</li>
+<li>Add a better label for the x-axis</li>
+<li>Add a better plot title</li>
+</ul>
+<p><em>NOTE:</em> The <code>diabetes</code> dataset is already loaded in the working directory of this <em>webr</em> session.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-code" aria-label="code"></i> Interactive Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
 <div class="tab-content">
@@ -2220,14 +2289,15 @@ Practice
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>age,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"green"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">50</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Age distribution"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(diabetes<span class="sc">$</span>age,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"green"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">50</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Age"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Age Distribution"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="histogram_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="histogram_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2237,8 +2307,36 @@ Practice
 </div>
 </div>
 </div>
+</section>
+<section id="kernel-density-plots" class="level3">
+<h3 class="anchored" data-anchor-id="kernel-density-plots">Kernel Density Plots</h3>
+<p>A kernel density plot provides a smoothed estimate of a continuous variable’s distribution. You can think about a kernel density plot as a smoothed version of a histogram. Essentially, we create a density plot by drawing a line that connects the tops of the columns from a special type of fine-grained histogram into a single continuous curve.</p>
+<p>In Base R, we don’t have a single function to create a kernel density plot. We first compute a density estimate with the <code>density()</code> function, and then we plot the estimated density object. For example, the following code visualizes the distribution of BMI with a kernel density plot.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">density</span>(diabetes<span class="sc">$</span>bmi)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="histogram_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As with any other Base R visualization, we can tweak the appearance of a kernel density plot through graphical parameters.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d, <span class="at">main =</span> <span class="st">"Estimated Density of BMI"</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="histogram_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -2675,8 +2773,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../tutorials/univariate/density.html" class="pagination-link" aria-label="Density Plots">
-        <span class="nav-page-text">Density Plots</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../tutorials/univariate/boxplot.html" class="pagination-link" aria-label="Boxplots">
+        <span class="nav-page-text">Boxplots</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

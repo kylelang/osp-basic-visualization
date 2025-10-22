@@ -1,38 +1,28 @@
 ---
-title: "Boxplots"
+title: "Conditional Plots"
 ---
 
-```{r, echo=FALSE}
-diabetes <- readRDS("data/diabetes.rds")
-titanic <- readRDS("data/titanic.rds")
+```{r, echo = FALSE}
+diabetes <- readRDS(here::here("data", "diabetes.rds"))
+titanic <- readRDS(here::here("data", "titanic.rds"))
 ```
 
-A boxplot summarizes a numeric variable’s distribution through five key statistics: the minimum, first quartile, median, third quartile, and maximum. It also highlights potential outliers. Boxplots are particularly useful for comparing distributions across groups and are a compact alternative to histograms when you want to quickly compare medians, spreads, and detect asymmetry or extreme values without showing the full shape of the distribution.
+We can convert most univariate visualizations that we create with Base R graphics into conditional plots by specifying a
+grouping factor. We then get a single figure with group-specific versions of the univariate visualization.
 
-A basic boxplot of the `progress` variable looks like this:
+### Boxplots
+
+We can use conditional boxplots to compare the distribution of a variable accross groups. To create this type of figure,
+we employ the so-called *formula interface* when calling the `boxplot()` function. In the following code, we use the
+`diabetes` dataset to create sex-specific boxplots of disease progression.
 
 ```{r}
-boxplot(diabetes$progress)
+boxplot(progress ~ sex, data = diabetes)
 ```
 
-In this case, the plot shows a median roughly in the middle of the box, fairly balanced whiskers, and no evident extreme outliers, suggesting a relatively symmetric distribution. In boxplots, outliers are typically displayed as individual points beyond the whiskers, which extend to 1.5 times the interquartile range from the box.
-
-Boxplots in base R accept many of the same parameters as the plot() function, such as axis labels, main titles, and limits, allowing for consistent styling across different plot types. We can also rotate the boxplot horizontally and change the whisker range:
-
-```{r}
-boxplot(diabetes$progress,
-        horizontal = TRUE,
-        range = 3,
-        xlab = "Disease Progression")
-```
-
-To compare groups, we use a formula, where the variable of interest is plotted against a factor:
-
-```{r}
-boxplot(progress ~ sex, data = diabetes, col = "violet")
-```
-
-This produces side-by-side boxplots for each group in `sex`, allowing a quick visual comparison of tendencies and spread.
+When we use the formula interface, we specify the plotted variable on the left hand side of the formula and we put the
+grouping factor on the righthand side of the formula. We also have to specify a data frame where `boxplot()` can find
+the variables we're referencing in the formula.
 
 ```{webr-r}
 #| autorun: true
@@ -43,12 +33,13 @@ titanic <- readRDS("titanic.rds")
 library(magrittr)
 ```
 
-
 ::: practice
 
 ## Practice
 
-Use base R graphics and the `titanic` data to create conditional boxplots, where plots of `age` are conditioned on `survived`. What does this figure tell you about the ages of survivors (`survived` = 1) vs. non-survivors (`survived` = 0)?
+Use base R graphics and the `titanic` data to create conditional boxplots, where plots of `age` are conditioned on
+`survived`. What does this figure tell you about the ages of survivors (`survived` = 1) vs. non-survivors (`survived` =
+0)?
 
 :::: {.panel-tabset}
 ## {{< var tab_title.editor >}}
@@ -59,7 +50,9 @@ Use base R graphics and the `titanic` data to create conditional boxplots, where
 
 ## {{< var tab_title.solution >}}
 
-As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing factor between survival and non-survival in this dataset. 
+As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same
+median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing
+factor between survival and non-survival in this dataset. 
 
 ```{r}
 boxplot(age ~ survived, data = titanic)
@@ -67,17 +60,3 @@ boxplot(age ~ survived, data = titanic)
 ::::
 
 :::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
