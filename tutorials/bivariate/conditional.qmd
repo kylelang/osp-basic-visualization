@@ -1,5 +1,5 @@
 ---
-title: "Conditional Plots"
+title: "Conditional & Combined Plots"
 ---
 
 ```{r, echo = FALSE}
@@ -20,26 +20,29 @@ we employ the so-called *formula interface* when calling the `boxplot()` functio
 boxplot(progress ~ sex, data = diabetes)
 ```
 
-When we use the formula interface, we specify the plotted variable on the left hand side of the formula and we put the
-grouping factor on the righthand side of the formula. We also have to specify a data frame where `boxplot()` can find
-the variables we're referencing in the formula.
+When we use the formula interface, we define the plot's structure through an R formula object that we specify as the
+first argument to `boxplot()`. In this formula, `progress ~ sex1`, we specify the plotted variable on the lefthand side
+of the formula and we put the grouping factor on the righthand side of the formula. We also have to use the `data`
+argument to specify a data frame where `boxplot()` can find the variables we're referencing in the formula.
 
 ```{webr-r}
 #| autorun: true
 #| context: setup
-#| 
-download.file("https://raw.githubusercontent.com/p3piit/exp_rawdata/main/diabetes.rds", "titanic.rds")
+
+download.file("https://openstatprog.com/raw-data/titanic.rds", "titanic.rds")
 titanic <- readRDS("titanic.rds")
-library(magrittr)
 ```
 
 ::: practice
 
 ## Practice
 
-Use base R graphics and the `titanic` data to create conditional boxplots, where plots of `age` are conditioned on
-`survived`. What does this figure tell you about the ages of survivors (`survived` = 1) vs. non-survivors (`survived` =
-0)?
+Use the `titanic` dataset to create a conditional boxplot to visualize the conditional distributions of `age` within the
+groups defined by the `survived` variable.
+
+- What does this figure tell you about the ages of survivors (`survived` = 1) vs. non-survivors (`survived` = 0)?
+
+*NOTE:* The `titanic` dataset is already loaded into the working directory of this *webr* session.
 
 :::: {.panel-tabset}
 ## {{< var tab_title.editor >}}
@@ -49,14 +52,82 @@ Use base R graphics and the `titanic` data to create conditional boxplots, where
 ```
 
 ## {{< var tab_title.solution >}}
-
-As we can see, the age distributions of survivors and non-survivors are quite similar. Both groups have nearly the same
-median age and a comparable spread of ages, indicating that age alone does not appear to be a strong distinguishing
-factor between survival and non-survival in this dataset. 
-
 ```{r}
 boxplot(age ~ survived, data = titanic)
 ```
+
+The median age does not seem to differ much between the two groups, but the survivors' distribution appears to be more
+symmetric and there are fewer old survivors. The non-survivors' distibution is positively skewed by the
+disproportionately higher number of fatalities among older age groups and relatively fewer fatalities among young
+passangers.
 ::::
 
 :::
+
+### Bar Plots
+
+Conditional bar plots visualize two dimensional contingency tables. So, these types of figure allow us to evaluate how
+the distribution of one categorical variable differs across levels of some other variable.
+
+To create a conditional bar plot, we fist create a two-way contingency table, and then we plot that table with the
+`barplot()` funciton. In the following code we use the `titanic` dataset to visualize the conditional distributions of
+ticket classes for the two survival groups.
+
+```{r}
+# Cross-tabulate ticket class and survival status
+tab <- table(titanic$class, titanic$survived)
+
+# Visualize the table created above
+barplot(tab)
+```
+
+The default barplot created above suffers from two important problems.
+
+1. The bars for each ticket class group are stacked, so the meaning of the values shown on the y-axis is ambiguous
+1. We don't know which ticket group is represented by which color.
+
+We can solve these problems by plotting the bars beside each other by setting `beside = TRUE` and drawing a legend by
+setting `legend = TRUE`.
+
+```{r}
+# Create a better visualization of the table
+barplot(tab, beside = TRUE, legend = TRUE)
+```
+
+### Histograms
+
+When generating histogams, we can't really create the same kind of conditional plots that we can with boxplots and bar
+plots, but we can overlay different plot layers to add useful information to our figure.
+
+```{r}
+# Create a basic histogram of blood glucose levels
+hist(diabetes$glu, probability = TRUE)
+
+# Calculate the kernel density estimate of blood glucose levels
+d <- density(diabetes$glu)
+
+# Overlay the kernel density curve on the histogram
+lines(y = d$y, x = d$x, col = "red")
+```
+
+```{r}
+# Create a basic histogram of average blood pressure levels
+hist(diabetes$bp)
+
+# Calculate the limits of the central 95% of observations
+ci <- quantile(diabetes$bp, prob = c(0.025, 0.975))
+
+# Add dashed lines to denote the 5% tail area cutoffs
+abline(v = ci, lty = 2, lwd = 2)
+```
+
+```{r}
+# Create a scatterplot of blood pressure against blood glucose
+plot(bp ~ glu, data = diabetes, pch = 19)
+
+# Estimate the linear regression of blood pressure on blood glucose
+lmOut <- lm(bp ~ glu, data = diabetes)
+
+# Add the best fit line to the scatterplot
+abline(reg = lmOut, lwd = 2, col = "blue")
+```
